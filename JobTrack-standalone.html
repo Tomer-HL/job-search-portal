@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#0073ea">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="JobTrack">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="JobTrack Community">
+<meta name="description" content="Personal job application tracker — local-first, free, open. מערכת מעקב משרות חינמית.">
+
+<link rel="manifest" href="data:application/manifest+json,{%22name%22:%20%22JobTrack%20\u2014%20Job%20Search%20Tracker%22,%20%22short_name%22:%20%22JobTrack%22,%20%22description%22:%20%22Free,%20local-first%20job%20application%20tracker%22,%20%22start_url%22:%20%22./%22,%20%22display%22:%20%22standalone%22,%20%22background_color%22:%20%22%230073ea%22,%20%22theme_color%22:%20%22%230073ea%22,%20%22lang%22:%20%22he%22,%20%22dir%22:%20%22rtl%22,%20%22icons%22:%20[{%22src%22:%20%22data:image/png;base64,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%22,%20%22sizes%22:%20%22192x192%22,%20%22type%22:%20%22image/png%22,%20%22purpose%22:%20%22any%22},%20{%22src%22:%20%22data:image/png;base64,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%22,%20%22sizes%22:%20%22512x512%22,%20%22type%22:%20%22image/png%22,%20%22purpose%22:%20%22any%22}]}">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAE2UlEQVR42u3dv24cVRTH8Tt2epsY5DTQRKKLRBeqSBTgPABFGpsmElX+SEF5CERBLNGlMhJKkQegTpcOiQ6JgjQBh5DwAMnQoCjezI53x7N7z537+Wob78r2eO7P33vO2Rm7SXeOE9DFhlOAeZxrnAMwB5Y3R+skgDmg5gBzgDmQMRwpqUjBHFjaHMQB5oBuBcwB5gBzgDmglYVtBbYVMAfAHGAOMAdWaY5WLwvmgJoDzAHmQMZw1POj/vv97ohfbev2X5M/Y83WrT8n/0O+HDUWb7M96Yg0WzcnHo6X93ZX+vW3b002H832pMPxYn4ymm+eLfWl2u8+mPfSexPNR6XdyrLJGPYpxYejSWmqj3naGLzM8z7xxb3dSZ5Acw7YVjBgzhFtCPZ8xc3FivhnvMPeCVPeNudvROlWnh+uLxbDyo6ehmV0dm7mj0izEyAcfx9msMWIrezqeD9rRJqdG09zJ+OC3b03H9l+e73xFn4kU2238ow2Ap8i5iCPHnO0KdfjmDYW4/jwQpYFYg7yiFpzIDLMwRzMAeZgDubAeszhbsgizJFjmZgDag41B3NAOGBbSSmldO3+q7c/fHB907ayNnPke+dt+WR0PlMHGRZoo2lTrseAZFSbjywLFPcu+/4EXLv/amZ/+eXX34pb8k8ufRy6IM14Q9WIlJiMpQ7bHW91JSP+wRuC6VYmPecIvnOXe/Bxa47+ecbMq4XmY/HDzrJAof/fyoPrm509S2duivbHQmMO5jg1B9VOSHOYIzw/bX928olH6lPmSCml1w+vnPoMc9Q455iXgzrzYc6xaAJeP7yy8eWj4NOkEWtkc47hxJwzFj26TXnvla1hDUY7tkz3yrr8vIiCtM1hjvKJPP4qejQXt5WdqTf7X425BuMWpIZgswno7Fk6czPx8TlzLJKDfqMYgtU1Pt/88NOZsh3rMkfgC4xTSs3ju6c+U4U5cixQ6G5lXg7qzMf6iTs+709A8/hue/nbUkZhZ6+Xjc+HE39QXeIofQq3JpRy3s9ynN6yB3OMbY5Sxl9nOc5M5oj6ruxMvdn/avx8nPUI/QXjdxPQ2bN05mba43PdykL+6DcKxpxzxJ9HH/3w9YmPL9e5Ujmu5whekP548Pupz9SAVjYtmIM685FhW2lKS8abV/ePLkYYha2nEM5UkJZ/gXHKOiRd07fOsUDG52UcgJoDsTA+L+MAmOMEM/Vm/6sZ8zHhyWzo8fn+0cXOnqUzN8bnK+hWYvNuDvqNglHNEf5qbmlI/hkP1BxQc4A5wByo1BxuPi3CHBmW6ZxslIFWFgpSKEjBHGAOMAeYQyurlWUO5lBzgDmYgznAHGAOFGsOrWwR5sjSyvpj4oWQ43oONYeaQ80B4YBtxbbCHNDKImQryxxQc6g5mAPMwRzMAeZATHO4wLgQXGAMNQfUHCi+5lB0KDqYgzl0K8TBHMyhW0FGcobj86+eWIDIJ8q2Yk+Juq18QR6BTxFz0EaPOTL+69A2pTbtHZDHXPYOnmRcmmZv/48gJ+Lno4+k4Q1XA/zOBAqHiMSJxf/huBosHDDnQAHoVsAcGGKO1tuyYA6oOcAcYA4wB4QDhbWyTgKYAwpSMAeYA8wB5kBR4XCvLJgDA8xBHWAO6FbAHGAOZDWHehTMATUHRuM/Sheatdn/PqkAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABmklEQVR42mNkwAaKX/1noBXoFWNE5qJwmItoaDEa+NsHcQjcAayFL+lmOQz87hdnZGRgYGDgGADLYYCFgYGBgXnArGdgYOTNf0GW9Z8miDMwlrxGEeP984/0ECDk+/cTxUlyFC4gmP8SewgI5+IOgTeTxKka3CJ5mI5gYfpPvwSAzS4WZiI0Rsz5C2evSGEm2wHM5KQBZMth/Arzu0RZaKCrhuoALHYRFQXLBBzh7Evqc4j28YXLt1Acgc0uJub/EJdhw+iWMzAwMOjdTCHaAdhCAB2zEFMIMctawNnnuVLIshxXFDAxMfxnwIXRLWdgYGAw/DaH/FyAxQ6iQmDR1HQ4W7f0L1nxjzsE/v9nwIXRLWdgYGC43M1MdhRgs4OF1IqIUAhgsxhvCBDKBegAXwjgsxxnLoAlNlwgdpEyw+K4uyh8ShIhySUhpZYSLAnp2RghuyimbW040CHAzEBHBzCMRgGJBZFn3COqWe4Z9wirHYwMDAwMXjEPRnDHBMYIiKZ/KGxYqsCI0jsOirpPN0esW6bIyMDAwAAAa+jC3XMTe3kAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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">
+
+<title>JobTrack · מעקב חיפוש עבודה</title>
+<style>
+:root {
+  --bg:#f6f7fb; --panel:#ffffff; --border:#e6e9ef; --text:#1f2937; --muted:#6b7280;
+  --primary:#0073ea; --primary-dk:#0060c2; --accent:#5559df;
+  --st-saved:#a5a5a5; --st-applied:#579bfc; --st-phone:#a25ddc; --st-interview:#fdab3d;
+  --st-offer:#00c875; --st-rejected:#e2445c; --st-withdrawn:#7e909a; --st-archived:#cfd2d9;
+  --shadow:0 1px 3px rgba(0,0,0,.04), 0 4px 18px rgba(0,0,0,.04);
+  --shadow-lg:0 10px 40px rgba(0,0,0,.12);
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Heebo","Assistant",sans-serif;font-size:14px}
+button{font-family:inherit;cursor:pointer}
+:root[dir=rtl] .lr-flip{transform:scaleX(-1)}
+
+/* Top bar */
+.topbar{background:linear-gradient(135deg,#0073ea 0%,#5559df 100%);color:#fff;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.topbar h1{margin:0;font-size:20px;font-weight:700;letter-spacing:.2px;display:flex;align-items:center;gap:10px}
+.topbar h1 .logo{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.18);display:inline-flex;align-items:center;justify-content:center;font-size:18px}
+.topbar h1 .sub{font-weight:400;opacity:.85;font-size:12px;margin-inline-start:8px}
+.topbar .actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{padding:7px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;font-weight:600;font-size:12px;display:inline-flex;align-items:center;gap:6px;transition:.15s;text-decoration:none;white-space:nowrap}
+.btn:hover{background:rgba(255,255,255,.22)}
+.btn.primary{background:#fff;color:var(--primary);border-color:#fff}
+.btn.primary:hover{background:#f0f6ff}
+.btn.danger{background:#e2445c;border-color:#e2445c}
+.btn.ghost{background:transparent;border-color:#d2d6de;color:var(--text)}
+.btn.ghost:hover{background:#f0f2f7}
+.btn.success{background:#00c875;border-color:#00c875}
+.btn.small{padding:5px 9px;font-size:11px}
+.sync-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:14px;background:rgba(255,255,255,.15);font-size:12px;cursor:pointer}
+.sync-chip:hover{background:rgba(255,255,255,.25)}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#cfd2d9;display:inline-block}
+.sync-dot.online{background:#00c875;animation:pulse 2s infinite}
+.sync-dot.offline{background:#fdab3d}
+.sync-dot.error{background:#e2445c}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.lang-toggle{display:inline-flex;background:rgba(255,255,255,.15);border-radius:14px;overflow:hidden;font-size:11px;font-weight:700}
+.lang-toggle button{border:0;background:transparent;color:#fff;padding:5px 11px;cursor:pointer;opacity:.6}
+.lang-toggle button.active{background:rgba(255,255,255,.85);color:var(--primary);opacity:1}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding:18px 22px 4px}
+.stat{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
+.stat .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.stat .value{font-size:26px;font-weight:700;margin-top:4px}
+.stat.applied .value{color:var(--st-applied)}
+.stat.interview .value{color:var(--st-interview)}
+.stat.offer .value{color:var(--st-offer)}
+.stat.rejected .value{color:var(--st-rejected)}
+.stat .delta{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* Toolbar */
+.toolbar{display:flex;align-items:center;gap:10px;padding:14px 22px;flex-wrap:wrap}
+.toolbar input[type=search],.toolbar select{padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;background:#fff;color:var(--text)}
+.toolbar input[type=search]{min-width:220px;flex:1;max-width:400px}
+.view-toggle{display:inline-flex;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:#fff}
+.view-toggle button{border:0;background:#fff;padding:8px 14px;font-size:13px;font-weight:600;color:var(--muted)}
+.view-toggle button.active{background:var(--primary);color:#fff}
+.spacer{flex:1}
+
+.container{padding:0 22px 60px}
+
+/* Table */
+.tablewrap{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);overflow:auto;box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;min-width:900px}
+thead th{background:#f6f7fb;text-align:start;font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700;padding:11px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;cursor:pointer;user-select:none;white-space:nowrap}
+thead th:hover{background:#eef1f6}
+thead th .sort-arrow{opacity:.4;margin-inline-start:4px;font-size:10px}
+thead th.sorted .sort-arrow{opacity:1;color:var(--primary)}
+tbody td{padding:10px 12px;border-bottom:1px solid #f1f3f7;vertical-align:middle;font-size:13px}
+tbody tr:hover{background:#fafbff}
+tbody tr.archived td{opacity:.62}
+.cell-company{font-weight:600;color:var(--text)}
+.cell-link a{color:var(--primary);text-decoration:none;font-size:12px}
+.cell-link a:hover{text-decoration:underline}
+.cell-notes{max-width:340px;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row-actions{display:flex;gap:4px}
+.icon-btn{border:0;background:transparent;padding:4px 6px;border-radius:4px;color:var(--muted);font-size:14px;cursor:pointer}
+.icon-btn:hover{background:#eef1f6;color:var(--text)}
+.icon-btn.del:hover{background:#fdecef;color:var(--st-rejected)}
+
+/* Status pills */
+.pill{display:inline-block;padding:4px 10px;border-radius:14px;font-size:11px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.pill.saved{background:var(--st-saved)}
+.pill.applied{background:var(--st-applied)}
+.pill.phone-screen{background:var(--st-phone)}
+.pill.interview{background:var(--st-interview)}
+.pill.offer{background:var(--st-offer)}
+.pill.rejected{background:var(--st-rejected)}
+.pill.withdrawn{background:var(--st-withdrawn)}
+.pill.archived{background:var(--st-archived);color:#5d6470}
+
+/* Kanban */
+.kanban{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.kanban .col{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:10px;box-shadow:var(--shadow);min-height:120px}
+.kanban .col-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;font-weight:700;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kanban .col-h .count{background:#eef1f6;color:var(--muted);padding:2px 8px;border-radius:10px;font-size:11px}
+.kanban .card{background:#fafbff;border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:8px;cursor:pointer;transition:.15s}
+.kanban .card:hover{box-shadow:0 2px 8px rgba(0,115,234,.15);transform:translateY(-1px)}
+.kanban .card .company{font-weight:700;font-size:13px;color:var(--text)}
+.kanban .card .role{font-size:12px;color:var(--muted);margin-top:2px}
+.kanban .card .meta{font-size:11px;color:var(--muted);margin-top:6px;display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap}
+
+/* Modals */
+.modal-bg{position:fixed;inset:0;background:rgba(15,20,35,.5);display:flex;align-items:center;justify-content:center;padding:20px;z-index:100;backdrop-filter:blur(2px)}
+.modal{background:#fff;border-radius:14px;width:100%;max-width:560px;max-height:90vh;overflow:auto;box-shadow:var(--shadow-lg)}
+.modal.wide{max-width:760px}
+.modal-h{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.modal-h h2{margin:0;font-size:18px}
+.modal-h .close{border:0;background:transparent;font-size:22px;color:var(--muted);cursor:pointer;width:32px;height:32px;border-radius:6px}
+.modal-h .close:hover{background:#eef1f6;color:var(--text)}
+.modal-b{padding:18px 22px}
+.modal-f{padding:14px 22px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:12px;font-weight:600;color:var(--text);margin-bottom:5px}
+.field input, .field select, .field textarea{width:100%;padding:8px 11px;border:1px solid var(--border);border-radius:6px;font-size:13px;background:#fff;color:var(--text);font-family:inherit}
+.field textarea{min-height:70px;resize:vertical}
+.field .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field-help{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* Welcome modal */
+.welcome-hero{background:linear-gradient(135deg,#0073ea 0%,#5559df 100%);color:#fff;padding:36px 28px;text-align:center;border-radius:14px 14px 0 0}
+.welcome-hero .emoji{font-size:48px;margin-bottom:8px;line-height:1}
+.welcome-hero h2{margin:0 0 8px;font-size:24px}
+.welcome-hero p{margin:0;opacity:.92;font-size:14px}
+.welcome-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;padding:24px}
+.welcome-feature{background:#f6f7fb;border-radius:10px;padding:14px;text-align:center}
+.welcome-feature .ico{font-size:24px;margin-bottom:6px}
+.welcome-feature .t{font-weight:700;font-size:13px;margin-bottom:3px}
+.welcome-feature .d{font-size:12px;color:var(--muted)}
+.welcome-tips{padding:0 24px 18px;font-size:13px;color:var(--text);line-height:1.6}
+.welcome-tips ul{padding-inline-start:18px;margin:6px 0 0}
+.welcome-tips li{margin-bottom:4px}
+
+/* Sync modal */
+.sync-status{padding:14px;border-radius:8px;margin-bottom:14px;font-size:13px}
+.sync-status.local{background:#eef1f6;color:var(--muted)}
+.sync-status.online{background:#dff5e7;color:#0a5d35}
+.sync-section{border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:12px}
+.sync-section h3{margin:0 0 8px;font-size:14px}
+.sync-section .step{font-size:12px;color:var(--muted);margin-bottom:6px}
+
+/* Empty state */
+.empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty .ico{font-size:48px;margin-bottom:10px}
+.empty h3{margin:0 0 4px;color:var(--text)}
+.empty p{margin:0 0 14px}
+
+/* Toast */
+.toast{position:fixed;bottom:20px;inset-inline-end:20px;background:#1f2937;color:#fff;padding:11px 18px;border-radius:8px;font-size:13px;box-shadow:var(--shadow-lg);z-index:200;transform:translateY(100px);opacity:0;transition:.3s}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{background:#00c875}
+.toast.error{background:#e2445c}
+
+@media (max-width:640px){
+  .topbar{padding:11px 14px}
+  .topbar h1{font-size:16px}
+  .stats{padding:12px 14px 4px;grid-template-columns:repeat(2,1fr)}
+  .stat .value{font-size:20px}
+  .toolbar{padding:10px 14px;gap:8px}
+  .toolbar input[type=search]{min-width:140px}
+  .container{padding:0 14px 60px}
+  .lang-toggle button{padding:4px 8px}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+/* ===========================================================
+ * JobTrack Community Edition
+ * Local-first job application tracker with optional cloud sync.
+ * Bilingual HE/EN. PWA-installable. Single-file deployable.
+ * =========================================================== */
+
+/* ---------- Constants ---------- */
+const STORAGE_KEY = 'jobtrack-community-data-v1';
+const UI_KEY      = 'jobtrack-community-ui-v1';
+const FB_KEY      = 'jobtrack-community-fbconfig-v1';
+const LANG_KEY    = 'jobtrack-community-lang';
+const SEEN_KEY    = 'jobtrack-community-onboarded';
+
+const STATUSES = [
+  {key:'saved',         labelHe:'נשמרה',          labelEn:'Saved'},
+  {key:'applied',       labelHe:'הוגשה',          labelEn:'Applied'},
+  {key:'phone-screen',  labelHe:'שיחה ראשונית',   labelEn:'Phone Screen'},
+  {key:'interview',     labelHe:'ראיון',          labelEn:'Interview'},
+  {key:'offer',         labelHe:'הצעה',           labelEn:'Offer'},
+  {key:'rejected',      labelHe:'נדחה',           labelEn:'Rejected'},
+  {key:'withdrawn',     labelHe:'נסוג',           labelEn:'Withdrawn'},
+  {key:'archived',      labelHe:'בארכיון',        labelEn:'Archived'},
+];
+const METHODS = [
+  {key:'direct',    labelHe:'ישירות',     labelEn:'Direct'},
+  {key:'referral',  labelHe:'הפניה',      labelEn:'Referral'},
+  {key:'linkedin',  labelHe:'LinkedIn',   labelEn:'LinkedIn'},
+  {key:'recruiter', labelHe:'מגייס/ת',    labelEn:'Recruiter'},
+  {key:'event',     labelHe:'אירוע',      labelEn:'Event'},
+  {key:'other',     labelHe:'אחר',        labelEn:'Other'},
+];
+const ARRANGEMENTS = [
+  {key:'',        labelHe:'—',              labelEn:'—'},
+  {key:'onsite',  labelHe:'מהמשרד',         labelEn:'On-site'},
+  {key:'hybrid',  labelHe:'היברידי',        labelEn:'Hybrid'},
+  {key:'remote',  labelHe:'מהבית',          labelEn:'Remote'},
+];
+
+/* ---------- i18n ---------- */
+const I18N = {
+  he: {
+    appName: 'JobTrack', tagline: 'מעקב חיפוש עבודה',
+    addJob: 'הוסף משרה', export: 'ייצוא', import: 'ייבוא', sync: 'סנכרון', settings: 'הגדרות',
+    search: 'חיפוש לפי חברה, תפקיד, מיקום…',
+    allStatuses: 'כל הסטטוסים', activeOnly: 'רק פעילות', includeArchived: 'כולל ארכיון', onlyArchived: 'רק ארכיון',
+    table: 'טבלה', kanban: 'קנבן',
+    company: 'חברה', role: 'תפקיד', status: 'סטטוס', method: 'אופן הגשה', location: 'מיקום',
+    arrangement: 'מיקום עבודה', applied: 'תאריך הגשה', updated: 'עדכון אחרון', notes: 'הערות', link: 'קישור',
+    actions: 'פעולות', edit: 'עריכה', delete: 'מחיקה', save: 'שמירה', cancel: 'ביטול', close: 'סגירה',
+    total: 'סה"כ', activeApps: 'פעילות', interviews: 'ראיונות', offers: 'הצעות', rejected: 'נדחו',
+    emptyTitle: 'בואו נתחיל!', emptyDesc: 'עוד לא הוספת משרות. לחץ "הוסף משרה" כדי להתחיל לעקוב.',
+    addFirstJob: 'הוסף משרה ראשונה',
+    confirmDelete: 'למחוק את המשרה הזו? לא ניתן לבטל.',
+    welcomeTitle: 'ברוכים הבאים ל-JobTrack', welcomeDesc: 'מערכת חופשית לניהול חיפוש עבודה - פרטית, מקומית, שלך.',
+    feat1Title: 'מקומי לחלוטין', feat1Desc: 'הנתונים נשמרים בדפדפן שלך. אין שרת, אין רישום.',
+    feat2Title: 'PWA', feat2Desc: 'התקן כאפליקציה, עבוד גם אופליין.',
+    feat3Title: 'סנכרון אופציונלי', feat3Desc: 'בחר להפעיל Firebase לסנכרון בין מכשירים.',
+    feat4Title: 'ייצוא/ייבוא', feat4Desc: 'גבה הכל לקובץ JSON בלחיצה.',
+    tipsTitle: 'טיפים להצלחה:',
+    tip1: 'עדכן סטטוס מיד אחרי כל אינטראקציה - זה בונה תמונה אמיתית.',
+    tip2: 'הוסף הערות אחרי ראיונות: שמות מראיינים, נושאים שעלו, איך הרגשת.',
+    tip3: 'אל תפחד "להגיש המון" - המספרים עוזרים לראות איפה אתה עומד.',
+    tip4: 'גבה את הנתונים פעם בשבוע באמצעות "ייצוא".',
+    getStarted: 'בואו נתחיל', skipForNow: 'דלג',
+    syncTitle: 'סנכרון בין מכשירים', syncDesc: 'כברירת מחדל הכל נשמר רק בדפדפן הזה. רוצה לסנכרן עם הטלפון? חבר חשבון Firebase חינמי (5 דקות הגדרה).',
+    localOnly: 'מצב מקומי - הנתונים שמורים רק בדפדפן הזה',
+    cloudActive: 'סנכרון פעיל - מחובר ל-Firebase',
+    setupFirebase: 'הגדרת Firebase', firebaseConfigPlaceholder: 'הדבק כאן את firebaseConfig מ-Firebase Console',
+    fbStep1: '1. כנס ל-Firebase Console וצור פרויקט חדש (חינם)',
+    fbStep2: '2. הוסף אפליקציית Web והעתק את אובייקט firebaseConfig',
+    fbStep3: '3. הפעל Firestore Database במצב production',
+    fbStep4: '4. הדבק את ה-config כאן והפעל',
+    enableSync: 'הפעל סנכרון', disableSync: 'בטל סנכרון', invalidConfig: 'תצורת Firebase לא תקינה',
+    importTitle: 'ייבוא נתונים', importDesc: 'בחר קובץ JSON שיוצא מ-JobTrack',
+    importReplace: 'החלף את כל הנתונים', importMerge: 'מזג עם הקיים', cancelImport: 'ביטול',
+    settingsTitle: 'הגדרות',
+    danger: 'אזור מסוכן', clearAll: 'מחק הכל', clearAllConfirm: 'בטוח שברצונך למחוק את כל הנתונים? אין דרך לבטל.',
+    aboutTitle: 'אודות', aboutText: 'גרסה קהילתית של JobTrack. קוד פתוח, חינמי, פרטי.',
+    saved: 'נשמר', deleted: 'נמחק', imported: 'יובא בהצלחה', exported: 'יוצא בהצלחה', updated_toast: 'עודכן',
+    requiredCompany: 'חברה היא שדה חובה', requiredRole: 'תפקיד הוא שדה חובה',
+    selectFile: 'בחר קובץ', noFileSelected: 'לא נבחר קובץ', invalidFile: 'קובץ לא תקין',
+  },
+  en: {
+    appName: 'JobTrack', tagline: 'Job Search Tracker',
+    addJob: 'Add Job', export: 'Export', import: 'Import', sync: 'Sync', settings: 'Settings',
+    search: 'Search company, role, location…',
+    allStatuses: 'All statuses', activeOnly: 'Active only', includeArchived: 'Include archived', onlyArchived: 'Archived only',
+    table: 'Table', kanban: 'Kanban',
+    company: 'Company', role: 'Role', status: 'Status', method: 'Method', location: 'Location',
+    arrangement: 'Work mode', applied: 'Applied', updated: 'Updated', notes: 'Notes', link: 'Link',
+    actions: 'Actions', edit: 'Edit', delete: 'Delete', save: 'Save', cancel: 'Cancel', close: 'Close',
+    total: 'Total', activeApps: 'Active', interviews: 'Interviews', offers: 'Offers', rejected: 'Rejected',
+    emptyTitle: "Let's get started!", emptyDesc: "You haven't added any jobs yet. Click \"Add Job\" to start tracking.",
+    addFirstJob: 'Add first job',
+    confirmDelete: 'Delete this job? This cannot be undone.',
+    welcomeTitle: 'Welcome to JobTrack', welcomeDesc: 'A free, private, local-first way to manage your job search.',
+    feat1Title: 'Fully Local', feat1Desc: 'Data stays in your browser. No server, no signup.',
+    feat2Title: 'PWA', feat2Desc: 'Install as an app, works offline.',
+    feat3Title: 'Optional Sync', feat3Desc: 'Enable Firebase to sync across devices.',
+    feat4Title: 'Export/Import', feat4Desc: 'Back everything up to JSON in one click.',
+    tipsTitle: 'Tips for success:',
+    tip1: 'Update status right after each interaction — it builds an honest picture.',
+    tip2: 'Add notes after interviews: interviewer names, topics covered, how you felt.',
+    tip3: "Don't be afraid to apply broadly — the numbers help you see where you stand.",
+    tip4: 'Back up your data weekly using "Export".',
+    getStarted: "Let's go", skipForNow: 'Skip',
+    syncTitle: 'Sync Across Devices', syncDesc: 'By default everything stays in this browser. Want to sync with your phone? Connect a free Firebase account (5-min setup).',
+    localOnly: 'Local mode — data is only in this browser',
+    cloudActive: 'Sync active — connected to Firebase',
+    setupFirebase: 'Set Up Firebase', firebaseConfigPlaceholder: 'Paste firebaseConfig from Firebase Console here',
+    fbStep1: '1. Go to Firebase Console and create a new project (free)',
+    fbStep2: '2. Add a Web app and copy the firebaseConfig object',
+    fbStep3: '3. Enable Firestore Database in production mode',
+    fbStep4: '4. Paste the config here and enable',
+    enableSync: 'Enable Sync', disableSync: 'Disable Sync', invalidConfig: 'Invalid Firebase config',
+    importTitle: 'Import Data', importDesc: 'Pick a JSON file exported from JobTrack',
+    importReplace: 'Replace all data', importMerge: 'Merge with existing', cancelImport: 'Cancel',
+    settingsTitle: 'Settings',
+    danger: 'Danger zone', clearAll: 'Clear All', clearAllConfirm: 'Sure you want to delete all data? Cannot be undone.',
+    aboutTitle: 'About', aboutText: 'JobTrack Community Edition. Open-source, free, private.',
+    saved: 'Saved', deleted: 'Deleted', imported: 'Imported successfully', exported: 'Exported successfully', updated_toast: 'Updated',
+    requiredCompany: 'Company is required', requiredRole: 'Role is required',
+    selectFile: 'Choose file', noFileSelected: 'No file selected', invalidFile: 'Invalid file',
+  }
+};
+
+/* ---------- State ---------- */
+let DATA = [];
+let UI = { view:'table', search:'', filterStatus:'all', filterArchived:'active', sortBy:'updatedAt', sortDir:'desc' };
+let LANG = 'he';
+let firebaseApp=null, db=null, auth=null, unsubscribe=null, syncEnabled=false, syncState='local';
+let editingId = null;
+
+/* ---------- Helpers ---------- */
+const t = (key) => I18N[LANG][key] || key;
+const uid = () => 'j' + Math.random().toString(36).slice(2,11) + Date.now().toString(36).slice(-4);
+const escapeHtml = (s) => (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDate = (d) => d ? new Date(d).toLocaleDateString(LANG==='he'?'he-IL':'en-US') : '';
+const todayISO = () => new Date().toISOString().slice(0,10);
+
+function loadState(){
+  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) DATA = JSON.parse(raw); } catch(e){ DATA = []; }
+  try { const raw = localStorage.getItem(UI_KEY); if (raw) Object.assign(UI, JSON.parse(raw)); } catch(e){}
+  LANG = localStorage.getItem(LANG_KEY) || 'he';
+}
+function saveData(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(DATA));
+  if (syncEnabled && db) pushToCloud();
+}
+function saveUI(){ localStorage.setItem(UI_KEY, JSON.stringify(UI)); }
+function setLang(l){ LANG = l; localStorage.setItem(LANG_KEY, l); document.documentElement.lang = l; document.documentElement.dir = l==='he'?'rtl':'ltr'; render(); }
+
+/* ---------- Toast ---------- */
+function toast(msg, type=''){
+  let el = document.getElementById('toast');
+  if (!el){ el = document.createElement('div'); el.id='toast'; el.className='toast'; document.body.appendChild(el); }
+  el.textContent = msg; el.className = 'toast show ' + type;
+  clearTimeout(el._t); el._t = setTimeout(()=>{ el.className = 'toast ' + type; }, 2400);
+}
+
+/* ---------- Filters / sort ---------- */
+function applyFilters(){
+  let rows = DATA.slice();
+  if (UI.filterArchived === 'active') rows = rows.filter(r => r.status !== 'archived');
+  else if (UI.filterArchived === 'archived') rows = rows.filter(r => r.status === 'archived');
+  if (UI.filterStatus !== 'all') rows = rows.filter(r => r.status === UI.filterStatus);
+  const q = (UI.search||'').trim().toLowerCase();
+  if (q) rows = rows.filter(r => [r.company,r.jobTitle,r.location,r.notes].some(v => (v||'').toLowerCase().includes(q)));
+  const dir = UI.sortDir === 'asc' ? 1 : -1;
+  rows.sort((a,b) => {
+    const av = a[UI.sortBy] || ''; const bv = b[UI.sortBy] || '';
+    return av < bv ? -1*dir : av > bv ? 1*dir : 0;
+  });
+  return rows;
+}
+function getStats(){
+  const active = DATA.filter(r => r.status !== 'archived');
+  return {
+    total: DATA.length,
+    active: active.length,
+    interviews: active.filter(r => r.status === 'interview' || r.status === 'phone-screen').length,
+    offers: active.filter(r => r.status === 'offer').length,
+    rejected: active.filter(r => r.status === 'rejected').length,
+  };
+}
+
+/* ---------- Render ---------- */
+function render(){
+  const app = document.getElementById('app');
+  const stats = getStats();
+  const rows = applyFilters();
+  app.innerHTML = `
+    <div class="topbar">
+      <h1><span class="logo">${LANG==='he'?'📋':'📋'}</span>${t('appName')}<span class="sub">${t('tagline')}</span></h1>
+      <div class="actions">
+        <div class="lang-toggle">
+          <button class="${LANG==='he'?'active':''}" data-lang="he">עב</button>
+          <button class="${LANG==='en'?'active':''}" data-lang="en">EN</button>
+        </div>
+        <span class="sync-chip" id="sync-chip"><span class="sync-dot ${syncState==='online'?'online':syncState==='error'?'error':''}"></span>${syncState==='online'?t('cloudActive').split('—')[0].trim():(LANG==='he'?'מקומי':'Local')}</span>
+        <button class="btn ghost small" id="btn-import">⬆ ${t('import')}</button>
+        <button class="btn ghost small" id="btn-export">⬇ ${t('export')}</button>
+        <button class="btn ghost small" id="btn-settings">⚙ ${t('settings')}</button>
+        <button class="btn primary" id="btn-add">+ ${t('addJob')}</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="label">${t('total')}</div><div class="value">${stats.total}</div></div>
+      <div class="stat applied"><div class="label">${t('activeApps')}</div><div class="value">${stats.active}</div></div>
+      <div class="stat interview"><div class="label">${t('interviews')}</div><div class="value">${stats.interviews}</div></div>
+      <div class="stat offer"><div class="label">${t('offers')}</div><div class="value">${stats.offers}</div></div>
+      <div class="stat rejected"><div class="label">${t('rejected')}</div><div class="value">${stats.rejected}</div></div>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="${t('search')}" value="${escapeHtml(UI.search)}">
+      <select id="filterStatus">
+        <option value="all">${t('allStatuses')}</option>
+        ${STATUSES.map(s => `<option value="${s.key}" ${UI.filterStatus===s.key?'selected':''}>${LANG==='he'?s.labelHe:s.labelEn}</option>`).join('')}
+      </select>
+      <select id="filterArchived">
+        <option value="active" ${UI.filterArchived==='active'?'selected':''}>${t('activeOnly')}</option>
+        <option value="all" ${UI.filterArchived==='all'?'selected':''}>${t('includeArchived')}</option>
+        <option value="archived" ${UI.filterArchived==='archived'?'selected':''}>${t('onlyArchived')}</option>
+      </select>
+      <div class="spacer"></div>
+      <div class="view-toggle">
+        <button class="${UI.view==='table'?'active':''}" data-view="table">${t('table')}</button>
+        <button class="${UI.view==='kanban'?'active':''}" data-view="kanban">${t('kanban')}</button>
+      </div>
+    </div>
+
+    <div class="container">
+      ${rows.length === 0 && DATA.length === 0 ? renderEmpty() :
+        rows.length === 0 ? `<div class="empty"><div class="ico">🔍</div><h3>${LANG==='he'?'אין תוצאות':'No results'}</h3><p>${LANG==='he'?'נסה לשנות את הסינון':'Try adjusting your filters'}</p></div>` :
+        UI.view==='table' ? renderTable(rows) : renderKanban(rows)}
+    </div>
+  `;
+  attachHandlers();
+}
+
+function renderEmpty(){
+  return `<div class="empty">
+    <div class="ico">🚀</div>
+    <h3>${t('emptyTitle')}</h3>
+    <p>${t('emptyDesc')}</p>
+    <button class="btn primary" id="btn-add-empty" style="background:var(--primary);color:#fff;border-color:var(--primary)">+ ${t('addFirstJob')}</button>
+  </div>`;
+}
+
+function renderTable(rows){
+  const cols = [
+    {k:'company', l:t('company')},
+    {k:'jobTitle', l:t('role')},
+    {k:'status', l:t('status')},
+    {k:'method', l:t('method')},
+    {k:'location', l:t('location')},
+    {k:'appliedAt', l:t('applied')},
+    {k:'updatedAt', l:t('updated')},
+    {k:'notes', l:t('notes')},
+  ];
+  return `<div class="tablewrap"><table>
+    <thead><tr>
+      ${cols.map(c => `<th data-sort="${c.k}" class="${UI.sortBy===c.k?'sorted':''}">${c.l}<span class="sort-arrow">${UI.sortBy===c.k?(UI.sortDir==='asc'?'▲':'▼'):'⇅'}</span></th>`).join('')}
+      <th style="cursor:default">${t('actions')}</th>
+    </tr></thead>
+    <tbody>
+      ${rows.map(r => `<tr class="${r.status==='archived'?'archived':''}">
+        <td class="cell-company">${escapeHtml(r.company||'')}</td>
+        <td>${escapeHtml(r.jobTitle||'')}${r.link?` <a href="${escapeHtml(r.link)}" target="_blank" rel="noopener" class="cell-link">↗</a>`:''}</td>
+        <td><span class="pill ${r.status||'saved'}">${LANG==='he'?(STATUSES.find(s=>s.key===r.status)||{labelHe:'—'}).labelHe:(STATUSES.find(s=>s.key===r.status)||{labelEn:'—'}).labelEn}</span></td>
+        <td>${LANG==='he'?(METHODS.find(m=>m.key===r.method)||{labelHe:''}).labelHe:(METHODS.find(m=>m.key===r.method)||{labelEn:''}).labelEn}</td>
+        <td>${escapeHtml(r.location||'')}</td>
+        <td>${fmtDate(r.appliedAt)}</td>
+        <td>${fmtDate(r.updatedAt)}</td>
+        <td class="cell-notes" title="${escapeHtml(r.notes||'')}">${escapeHtml(r.notes||'')}</td>
+        <td><div class="row-actions">
+          <button class="icon-btn edit-row" data-id="${r.id}" title="${t('edit')}">✎</button>
+          <button class="icon-btn del del-row" data-id="${r.id}" title="${t('delete')}">🗑</button>
+        </div></td>
+      </tr>`).join('')}
+    </tbody>
+  </table></div>`;
+}
+
+function renderKanban(rows){
+  const cols = STATUSES.filter(s => s.key !== 'archived');
+  return `<div class="kanban">${cols.map(s => {
+    const items = rows.filter(r => (r.status || 'saved') === s.key);
+    return `<div class="col">
+      <div class="col-h"><span><span class="pill ${s.key}" style="margin-inline-end:6px">${LANG==='he'?s.labelHe:s.labelEn}</span></span><span class="count">${items.length}</span></div>
+      ${items.map(r => `<div class="card edit-row" data-id="${r.id}">
+        <div class="company">${escapeHtml(r.company||'')}</div>
+        <div class="role">${escapeHtml(r.jobTitle||'')}</div>
+        <div class="meta">
+          <span>${escapeHtml(r.location||'')}</span>
+          <span>${fmtDate(r.appliedAt)}</span>
+        </div>
+      </div>`).join('')}
+    </div>`;
+  }).join('')}</div>`;
+}
+
+/* ---------- Event handlers ---------- */
+function attachHandlers(){
+  document.querySelectorAll('[data-lang]').forEach(b => b.onclick = () => setLang(b.dataset.lang));
+  document.querySelectorAll('[data-view]').forEach(b => b.onclick = () => { UI.view = b.dataset.view; saveUI(); render(); });
+  document.querySelectorAll('[data-sort]').forEach(th => th.onclick = () => {
+    const k = th.dataset.sort;
+    if (UI.sortBy === k) UI.sortDir = UI.sortDir === 'asc' ? 'desc' : 'asc';
+    else { UI.sortBy = k; UI.sortDir = 'desc'; }
+    saveUI(); render();
+  });
+  const s = document.getElementById('search');
+  if (s) s.oninput = (e) => { UI.search = e.target.value; saveUI(); render(); s.focus(); };
+  const fs = document.getElementById('filterStatus');
+  if (fs) fs.onchange = (e) => { UI.filterStatus = e.target.value; saveUI(); render(); };
+  const fa = document.getElementById('filterArchived');
+  if (fa) fa.onchange = (e) => { UI.filterArchived = e.target.value; saveUI(); render(); };
+  document.getElementById('btn-add').onclick = () => openJobModal();
+  const ae = document.getElementById('btn-add-empty'); if (ae) ae.onclick = () => openJobModal();
+  document.getElementById('btn-export').onclick = exportData;
+  document.getElementById('btn-import').onclick = openImportModal;
+  document.getElementById('btn-settings').onclick = openSettingsModal;
+  document.getElementById('sync-chip').onclick = openSyncModal;
+  document.querySelectorAll('.edit-row').forEach(b => b.onclick = (e) => { e.stopPropagation(); openJobModal(b.dataset.id); });
+  document.querySelectorAll('.del-row').forEach(b => b.onclick = (e) => {
+    e.stopPropagation();
+    if (confirm(t('confirmDelete'))) { DATA = DATA.filter(d => d.id !== b.dataset.id); saveData(); toast(t('deleted'), 'success'); render(); }
+  });
+}
+
+/* ---------- Modal infrastructure ---------- */
+function openModal(html){
+  closeModal();
+  const bg = document.createElement('div');
+  bg.className = 'modal-bg';
+  bg.id = 'modal-bg';
+  bg.innerHTML = html;
+  bg.addEventListener('click', (e) => { if (e.target === bg) closeModal(); });
+  document.body.appendChild(bg);
+  const closeBtn = bg.querySelector('.close, [data-close]');
+  if (closeBtn) closeBtn.onclick = closeModal;
+  return bg;
+}
+function closeModal(){ const m = document.getElementById('modal-bg'); if (m) m.remove(); }
+
+/* ---------- Job add/edit ---------- */
+function openJobModal(id){
+  editingId = id || null;
+  const r = id ? DATA.find(d => d.id === id) : { id: uid(), status:'saved', appliedAt: todayISO(), updatedAt: todayISO() };
+  if (!r) return;
+  const html = `<div class="modal">
+    <div class="modal-h"><h2>${id?t('edit'):t('addJob')}</h2><button class="close">×</button></div>
+    <div class="modal-b">
+      <div class="field"><label>${t('company')} *</label><input id="f-company" value="${escapeHtml(r.company||'')}" autofocus></div>
+      <div class="field"><label>${t('role')} *</label><input id="f-jobTitle" value="${escapeHtml(r.jobTitle||'')}"></div>
+      <div class="field"><div class="row">
+        <div><label>${t('status')}</label><select id="f-status">${STATUSES.map(s=>`<option value="${s.key}" ${r.status===s.key?'selected':''}>${LANG==='he'?s.labelHe:s.labelEn}</option>`).join('')}</select></div>
+        <div><label>${t('method')}</label><select id="f-method">${METHODS.map(m=>`<option value="${m.key}" ${r.method===m.key?'selected':''}>${LANG==='he'?m.labelHe:m.labelEn}</option>`).join('')}</select></div>
+      </div></div>
+      <div class="field"><div class="row">
+        <div><label>${t('location')}</label><input id="f-location" value="${escapeHtml(r.location||'')}" list="city-list"></div>
+        <div><label>${t('arrangement')}</label><select id="f-arrangement">${ARRANGEMENTS.map(a=>`<option value="${a.key}" ${r.arrangement===a.key?'selected':''}>${LANG==='he'?a.labelHe:a.labelEn}</option>`).join('')}</select></div>
+      </div></div>
+      <div class="field"><div class="row">
+        <div><label>${t('applied')}</label><input id="f-appliedAt" type="date" value="${r.appliedAt||''}"></div>
+        <div><label>${t('link')}</label><input id="f-link" value="${escapeHtml(r.link||'')}" placeholder="https://..."></div>
+      </div></div>
+      <div class="field"><label>${t('notes')}</label><textarea id="f-notes" placeholder="${LANG==='he'?'תרשום פרטים, שמות מראיינים, רשמים…':'Notes, interviewers, impressions…'}">${escapeHtml(r.notes||'')}</textarea></div>
+    </div>
+    <div class="modal-f">
+      <button class="btn ghost" data-close>${t('cancel')}</button>
+      <button class="btn primary" id="f-save" style="background:var(--primary);color:#fff;border-color:var(--primary)">${t('save')}</button>
+    </div>
+  </div>`;
+  const bg = openModal(html);
+  bg.querySelector('#f-save').onclick = () => {
+    const company = bg.querySelector('#f-company').value.trim();
+    const jobTitle = bg.querySelector('#f-jobTitle').value.trim();
+    if (!company){ toast(t('requiredCompany'), 'error'); return; }
+    if (!jobTitle){ toast(t('requiredRole'), 'error'); return; }
+    const next = {
+      id: r.id, company, jobTitle,
+      status: bg.querySelector('#f-status').value,
+      method: bg.querySelector('#f-method').value,
+      location: bg.querySelector('#f-location').value.trim(),
+      arrangement: bg.querySelector('#f-arrangement').value,
+      appliedAt: bg.querySelector('#f-appliedAt').value,
+      link: bg.querySelector('#f-link').value.trim(),
+      notes: bg.querySelector('#f-notes').value,
+      updatedAt: todayISO(),
+    };
+    const existing = DATA.findIndex(d => d.id === r.id);
+    if (existing >= 0) DATA[existing] = { ...DATA[existing], ...next };
+    else DATA.push(next);
+    saveData();
+    toast(id ? t('updated_toast') : t('saved'), 'success');
+    closeModal(); render();
+  };
+}
+
+/* ---------- Welcome modal ---------- */
+function openWelcomeModal(){
+  const html = `<div class="modal wide">
+    <div class="welcome-hero">
+      <div class="emoji">🎯</div>
+      <h2>${t('welcomeTitle')}</h2>
+      <p>${t('welcomeDesc')}</p>
+    </div>
+    <div class="welcome-features">
+      <div class="welcome-feature"><div class="ico">🔒</div><div class="t">${t('feat1Title')}</div><div class="d">${t('feat1Desc')}</div></div>
+      <div class="welcome-feature"><div class="ico">📱</div><div class="t">${t('feat2Title')}</div><div class="d">${t('feat2Desc')}</div></div>
+      <div class="welcome-feature"><div class="ico">☁️</div><div class="t">${t('feat3Title')}</div><div class="d">${t('feat3Desc')}</div></div>
+      <div class="welcome-feature"><div class="ico">💾</div><div class="t">${t('feat4Title')}</div><div class="d">${t('feat4Desc')}</div></div>
+    </div>
+    <div class="welcome-tips">
+      <strong>${t('tipsTitle')}</strong>
+      <ul>
+        <li>${t('tip1')}</li>
+        <li>${t('tip2')}</li>
+        <li>${t('tip3')}</li>
+        <li>${t('tip4')}</li>
+      </ul>
+    </div>
+    <div class="modal-f">
+      <button class="btn ghost" data-close>${t('skipForNow')}</button>
+      <button class="btn primary" id="w-start" style="background:var(--primary);color:#fff;border-color:var(--primary)">${t('getStarted')} →</button>
+    </div>
+  </div>`;
+  const bg = openModal(html);
+  bg.querySelector('#w-start').onclick = () => { localStorage.setItem(SEEN_KEY, '1'); closeModal(); openJobModal(); };
+  bg.querySelector('[data-close]').onclick = () => { localStorage.setItem(SEEN_KEY, '1'); closeModal(); };
+}
+
+/* ---------- Settings modal ---------- */
+function openSettingsModal(){
+  const html = `<div class="modal">
+    <div class="modal-h"><h2>${t('settingsTitle')}</h2><button class="close">×</button></div>
+    <div class="modal-b">
+      <div class="sync-section">
+        <h3>${LANG==='he'?'שפה':'Language'}</h3>
+        <div class="lang-toggle" style="background:#eef1f6;display:inline-flex;border-radius:6px">
+          <button class="${LANG==='he'?'active':''}" data-set-lang="he" style="color:${LANG==='he'?'#fff':'var(--text)'};background:${LANG==='he'?'var(--primary)':'transparent'};border:0;padding:7px 14px;border-radius:6px">עברית</button>
+          <button class="${LANG==='en'?'active':''}" data-set-lang="en" style="color:${LANG==='en'?'#fff':'var(--text)'};background:${LANG==='en'?'var(--primary)':'transparent'};border:0;padding:7px 14px;border-radius:6px">English</button>
+        </div>
+      </div>
+      <div class="sync-section">
+        <h3>${LANG==='he'?'נתונים':'Data'}</h3>
+        <button class="btn ghost" id="s-export" style="margin-inline-end:6px">⬇ ${t('export')}</button>
+        <button class="btn ghost" id="s-import">⬆ ${t('import')}</button>
+      </div>
+      <div class="sync-section" style="border-color:#fcd2d8">
+        <h3 style="color:#9c1b3a">${t('danger')}</h3>
+        <button class="btn danger" id="s-clear">${t('clearAll')}</button>
+      </div>
+      <div class="sync-section">
+        <h3>${t('aboutTitle')}</h3>
+        <div style="font-size:12px;color:var(--muted)">${t('aboutText')}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:6px">v1.0 · MIT License</div>
+      </div>
+    </div>
+    <div class="modal-f"><button class="btn ghost" data-close>${t('close')}</button></div>
+  </div>`;
+  const bg = openModal(html);
+  bg.querySelectorAll('[data-set-lang]').forEach(b => b.onclick = () => { setLang(b.dataset.setLang); closeModal(); openSettingsModal(); });
+  bg.querySelector('#s-export').onclick = () => { closeModal(); exportData(); };
+  bg.querySelector('#s-import').onclick = () => { closeModal(); openImportModal(); };
+  bg.querySelector('#s-clear').onclick = () => {
+    if (confirm(t('clearAllConfirm'))){ DATA = []; saveData(); closeModal(); render(); toast(t('deleted'), 'success'); }
+  };
+}
+
+/* ---------- Sync modal ---------- */
+function openSyncModal(){
+  const html = `<div class="modal">
+    <div class="modal-h"><h2>${t('syncTitle')}</h2><button class="close">×</button></div>
+    <div class="modal-b">
+      <div class="sync-status ${syncEnabled?'online':'local'}">${syncEnabled?'✓ '+t('cloudActive'):t('localOnly')}</div>
+      <p style="font-size:13px;color:var(--muted);margin:0 0 14px">${t('syncDesc')}</p>
+      ${syncEnabled ? `
+        <button class="btn danger" id="sync-disable">${t('disableSync')}</button>
+      ` : `
+        <div class="sync-section">
+          <h3>${t('setupFirebase')}</h3>
+          <div class="step">${t('fbStep1')} → <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a></div>
+          <div class="step">${t('fbStep2')}</div>
+          <div class="step">${t('fbStep3')}</div>
+          <div class="step">${t('fbStep4')}</div>
+          <textarea id="fb-config" placeholder="${t('firebaseConfigPlaceholder')}" style="width:100%;min-height:140px;font-family:monospace;font-size:11px;padding:8px;border:1px solid var(--border);border-radius:6px;margin-top:10px"></textarea>
+          <button class="btn primary" id="fb-enable" style="background:var(--primary);color:#fff;border-color:var(--primary);margin-top:8px">${t('enableSync')}</button>
+        </div>
+      `}
+    </div>
+    <div class="modal-f"><button class="btn ghost" data-close>${t('close')}</button></div>
+  </div>`;
+  const bg = openModal(html);
+  if (!syncEnabled){
+    bg.querySelector('#fb-enable').onclick = () => {
+      const raw = bg.querySelector('#fb-config').value.trim();
+      try {
+        // Extract firebaseConfig object from pasted code
+        let cfg;
+        const m = raw.match(/\{[\s\S]*\}/);
+        if (!m) throw new Error('no object');
+        cfg = (new Function('return ' + m[0]))();
+        if (!cfg.apiKey || !cfg.projectId) throw new Error('missing keys');
+        localStorage.setItem(FB_KEY, JSON.stringify(cfg));
+        initFirebase().then(()=>{ closeModal(); toast(t('cloudActive'), 'success'); render(); });
+      } catch(e){ toast(t('invalidConfig'), 'error'); }
+    };
+  } else {
+    bg.querySelector('#sync-disable').onclick = () => {
+      localStorage.removeItem(FB_KEY);
+      if (unsubscribe) unsubscribe();
+      syncEnabled = false; syncState = 'local'; db = null; firebaseApp = null;
+      closeModal(); render(); toast(LANG==='he'?'סנכרון בוטל':'Sync disabled');
+    };
+  }
+}
+
+/* ---------- Import / Export ---------- */
+function exportData(){
+  const blob = new Blob([JSON.stringify({ version:1, exportedAt: new Date().toISOString(), data: DATA }, null, 2)], { type:'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `jobtrack-${todayISO()}.json`;
+  a.click(); URL.revokeObjectURL(url);
+  toast(t('exported'), 'success');
+}
+function openImportModal(){
+  const html = `<div class="modal">
+    <div class="modal-h"><h2>${t('importTitle')}</h2><button class="close">×</button></div>
+    <div class="modal-b">
+      <p style="font-size:13px;color:var(--muted);margin:0 0 12px">${t('importDesc')}</p>
+      <input type="file" id="imp-file" accept=".json,application/json">
+      <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn ghost" id="imp-merge">${t('importMerge')}</button>
+        <button class="btn primary" id="imp-replace" style="background:var(--primary);color:#fff;border-color:var(--primary)">${t('importReplace')}</button>
+      </div>
+    </div>
+    <div class="modal-f"><button class="btn ghost" data-close>${t('cancelImport')}</button></div>
+  </div>`;
+  const bg = openModal(html);
+  async function doImport(mode){
+    const f = bg.querySelector('#imp-file').files[0];
+    if (!f){ toast(t('noFileSelected'), 'error'); return; }
+    try {
+      const txt = await f.text();
+      const parsed = JSON.parse(txt);
+      const arr = Array.isArray(parsed) ? parsed : (parsed.data || []);
+      if (!Array.isArray(arr)) throw new Error('not array');
+      if (mode === 'replace') DATA = arr.map(d => ({ ...d, id: d.id || uid() }));
+      else { // merge
+        const map = new Map(DATA.map(d => [d.id, d]));
+        arr.forEach(d => { const id = d.id || uid(); map.set(id, { ...d, id }); });
+        DATA = [...map.values()];
+      }
+      saveData(); closeModal(); render(); toast(t('imported'), 'success');
+    } catch(e){ toast(t('invalidFile'), 'error'); }
+  }
+  bg.querySelector('#imp-replace').onclick = () => doImport('replace');
+  bg.querySelector('#imp-merge').onclick = () => doImport('merge');
+}
+
+/* ---------- Firebase (optional) ---------- */
+async function initFirebase(){
+  const raw = localStorage.getItem(FB_KEY);
+  if (!raw) return;
+  try {
+    const cfg = JSON.parse(raw);
+    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js');
+    const fbAuth = await import('https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js');
+    const fbStore = await import('https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js');
+    firebaseApp = initializeApp(cfg);
+    auth = fbAuth.getAuth(firebaseApp);
+    db = fbStore.getFirestore(firebaseApp);
+    // Sign in anonymously so each device gets its own user namespace, but optionally hook to Google sign-in later
+    await fbAuth.signInAnonymously(auth);
+    fbAuth.onAuthStateChanged(auth, async (user) => {
+      if (!user) return;
+      const colRef = fbStore.collection(db, 'users', user.uid, 'jobs');
+      unsubscribe = fbStore.onSnapshot(colRef, (snap) => {
+        if (snap.metadata.hasPendingWrites) return;
+        const cloud = snap.docs.map(d => ({ ...d.data(), id: d.id }));
+        if (cloud.length > 0 || DATA.length === 0){
+          DATA = cloud;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(DATA));
+          render();
+        } else {
+          // first time: push local up
+          pushToCloud();
+        }
+      }, () => { syncState = 'error'; render(); });
+    });
+    syncEnabled = true; syncState = 'online';
+  } catch(e){ syncState = 'error'; console.error(e); }
+}
+async function pushToCloud(){
+  if (!db || !auth || !auth.currentUser) return;
+  try {
+    const fbStore = await import('https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js');
+    const uidv = auth.currentUser.uid;
+    for (const r of DATA){
+      await fbStore.setDoc(fbStore.doc(db, 'users', uidv, 'jobs', r.id), r);
+    }
+  } catch(e){ console.error('push failed', e); }
+}
+
+/* ---------- Boot ---------- */
+function boot(){
+  loadState();
+  document.documentElement.lang = LANG; document.documentElement.dir = LANG==='he'?'rtl':'ltr';
+  render();
+  if (!localStorage.getItem(SEEN_KEY)) openWelcomeModal();
+  if (localStorage.getItem(FB_KEY)) initFirebase().then(render);
+  // Register service worker (PWA)
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  }
+}
+boot();
+</script>
+</body>
+</html>
