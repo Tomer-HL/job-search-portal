@@ -4,7 +4,7 @@
 //   - Firebase SDK modules on gstatic.com/firebasejs: cache-first (versioned URLs, so the cache is safe)
 //   - Firebase / Google API traffic (Firestore, Auth): never intercepted — Firestore has its own offline cache
 
-const CACHE_NAME = 'jobtrack-community-v3';
+const CACHE_NAME = 'jobtrack-community-v4';
 const SHELL = [
   './',
   './index.html',

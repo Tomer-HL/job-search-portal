@@ -395,7 +395,7 @@ const I18N = {
     rulesDenied: "אין הרשאה לשמור בענן. פנה למפעיל האתר.",
     back: "חזרה",
     contactLink: "פנייה דרך GitHub",
-    sourceCode: "קוד מקור",
+    rights: "© כל הזכויות שמורות לתומר 2026",
     privacyLink: "פרטיות",
     a11yLink: "הצהרת נגישות",
     privacyTitle: "הודעת פרטיות",
@@ -497,7 +497,7 @@ const I18N = {
     rulesDenied: "Not allowed to save to the cloud. Contact the site operator.",
     back: "Back",
     contactLink: "Contact via GitHub",
-    sourceCode: "Source code",
+    rights: "© 2026 Tomer. All rights reserved.",
     privacyLink: "Privacy",
     a11yLink: "Accessibility statement",
     privacyTitle: "Privacy Notice",
@@ -741,7 +741,7 @@ function render(){
       <span>JobTrack · v2.1</span>
       <button type="button" class="linklike" id="open-privacy">${t('privacyLink')}</button>
       <button type="button" class="linklike" id="open-a11y">${t('a11yLink')}</button>
-      <a href="${REPO_URL}" target="_blank" rel="noopener">${t('sourceCode')}<span class="sr-only"> (${t('newTab')})</span></a>
+      <span>${t('rights')}</span>
     </footer>
   `;
   attachHandlers();
