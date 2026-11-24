@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0073ea">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -21,8 +21,8 @@
 :root {
   --bg:#f6f7fb; --panel:#ffffff; --border:#e6e9ef; --text:#1f2937; --muted:#6b7280;
   --primary:#0073ea; --primary-dk:#0060c2; --accent:#5559df;
-  --st-saved:#a5a5a5; --st-applied:#579bfc; --st-phone:#a25ddc; --st-interview:#fdab3d;
-  --st-offer:#00c875; --st-rejected:#e2445c; --st-withdrawn:#7e909a; --st-archived:#cfd2d9;
+  --st-saved:#6b7280; --st-applied:#1b66c9; --st-phone:#8a3fc4; --st-interview:#a85a00;
+  --st-offer:#0a7d4f; --st-rejected:#c62a42; --st-withdrawn:#5f707a; --st-archived:#cfd2d9;
   --shadow:0 1px 3px rgba(0,0,0,.04), 0 4px 18px rgba(0,0,0,.04);
   --shadow-lg:0 10px 40px rgba(0,0,0,.12);
   --radius:10px;
@@ -42,10 +42,10 @@ button{font-family:inherit;cursor:pointer}
 .btn:hover{background:rgba(255,255,255,.22)}
 .btn.primary{background:#fff;color:var(--primary);border-color:#fff}
 .btn.primary:hover{background:#f0f6ff}
-.btn.danger{background:#e2445c;border-color:#e2445c}
+.btn.danger{background:#c62a42;border-color:#c62a42}
 .btn.ghost{background:transparent;border-color:#d2d6de;color:var(--text)}
 .btn.ghost:hover{background:#f0f2f7}
-.btn.success{background:#00c875;border-color:#00c875}
+.btn.success{background:#0a7d4f;border-color:#0a7d4f}
 .btn.small{padding:5px 9px;font-size:11px}
 .sync-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:14px;background:rgba(255,255,255,.15);font-size:12px;cursor:pointer}
 .sync-chip:hover{background:rgba(255,255,255,.25)}
@@ -55,7 +55,7 @@ button{font-family:inherit;cursor:pointer}
 .sync-dot.error{background:#e2445c}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 .lang-toggle{display:inline-flex;background:rgba(255,255,255,.15);border-radius:14px;overflow:hidden;font-size:11px;font-weight:700}
-.lang-toggle button{border:0;background:transparent;color:#fff;padding:5px 11px;cursor:pointer;opacity:.6}
+.lang-toggle button{border:0;background:transparent;color:#fff;padding:5px 11px;cursor:pointer;opacity:1}
 .lang-toggle button.active{background:rgba(255,255,255,.85);color:var(--primary);opacity:1}
 
 /* Stats */
@@ -108,7 +108,7 @@ tbody tr.archived td{opacity:.62}
 .pill.offer{background:var(--st-offer)}
 .pill.rejected{background:var(--st-rejected)}
 .pill.withdrawn{background:var(--st-withdrawn)}
-.pill.archived{background:var(--st-archived);color:#5d6470}
+.pill.archived{background:var(--st-archived);color:#374151}
 
 /* Kanban */
 .kanban{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
@@ -169,8 +169,8 @@ tbody tr.archived td{opacity:.62}
 /* Toast */
 .toast{position:fixed;bottom:20px;inset-inline-end:20px;background:#1f2937;color:#fff;padding:11px 18px;border-radius:8px;font-size:13px;box-shadow:var(--shadow-lg);z-index:200;transform:translateY(100px);opacity:0;transition:.3s}
 .toast.show{transform:translateY(0);opacity:1}
-.toast.success{background:#00c875}
-.toast.error{background:#e2445c}
+.toast.success{background:#0a7d4f}
+.toast.error{background:#c62a42}
 
 @media (max-width:640px){
   .topbar{padding:11px 14px}
@@ -182,10 +182,74 @@ tbody tr.archived td{opacity:.62}
   .container{padding:0 14px 60px}
   .lang-toggle button{padding:4px 8px}
 }
+
+/* ===== Accessibility & responsive additions ===== */
+.skip-link{position:absolute;inset-inline-start:8px;top:-60px;background:#fff;color:#0050a8;padding:10px 16px;border-radius:8px;font-weight:700;z-index:400;text-decoration:none;box-shadow:var(--shadow-lg)}
+.skip-link:focus{top:8px}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid #111827;outline-offset:2px;box-shadow:0 0 0 5px #fff}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline-offset:0}
+main:focus{outline:none}
+button.sync-chip{border:0;color:#fff;font:inherit;font-size:12px}
+.topbar .btn.ghost{color:#fff;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.1)}
+.topbar .btn.ghost:hover{background:rgba(255,255,255,.22)}
+.th-btn{background:none;border:0;font:inherit;color:inherit;text-transform:inherit;letter-spacing:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:0}
+tbody tr.archived td{opacity:.8}
+.mobile-only{display:none}
+details.more{margin:6px 0 2px;border:1px solid var(--border);border-radius:8px;padding:2px 12px}
+details.more>summary{cursor:pointer;font-weight:600;padding:10px 0;color:var(--text)}
+details.more .field{margin-top:8px}
+.app-footer{padding:18px 22px 40px;font-size:12px;color:var(--muted);display:flex;gap:6px 14px;flex-wrap:wrap;align-items:center}
+.app-footer a,.linklike{color:#0050a8;background:none;border:0;padding:6px 2px;font:inherit;font-size:12px;text-decoration:underline;cursor:pointer}
+.legal h3{font-size:14px;margin:16px 0 4px}
+.legal p,.legal li{font-size:13px;line-height:1.65;color:var(--text);margin:4px 0}
+.legal ul{margin:4px 0;padding-inline-start:20px}
+.legal .upd{font-size:11px;color:var(--muted)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;margin:12px 0}
+.consent input{width:20px;height:20px;margin-top:1px;flex:0 0 auto}
+.btn.google{background:#fff;color:#1f2937;border:1px solid #747775;font-size:14px;padding:10px 16px}
+.btn.google:disabled{opacity:.55;cursor:not-allowed}
+.acct{display:flex;gap:10px;align-items:center;margin:8px 0 14px;font-size:13px}
+.acct b{display:block}
+@media (pointer:coarse),(max-width:640px){
+  .btn,.icon-btn,.lang-toggle button,.view-toggle button,button.sync-chip,.th-btn{min-height:44px}
+  .icon-btn{min-width:44px;font-size:16px}
+  .lang-toggle button{min-width:44px}
+  .toolbar input[type=search],.toolbar select,.field input,.field select,.field textarea{min-height:44px;font-size:16px}
+}
+@media (max-width:640px){
+  .hide-mobile{display:none!important}
+  .mobile-only{display:inline-block}
+  .topbar{flex-wrap:wrap}
+  .toolbar .spacer{display:none}
+  .toolbar select,.toolbar input[type=search]{flex:1 1 100%;max-width:none}
+  .view-toggle{flex:1 1 100%}.view-toggle button{flex:1}
+  .container{padding:0 14px 40px}
+  .tablewrap{border:0;background:transparent;box-shadow:none;overflow:visible}
+  table{min-width:0;display:block}
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+  tbody{display:block}
+  tbody tr{display:block;background:var(--panel);border:1px solid var(--border);border-radius:10px;margin:0 0 10px;padding:8px 12px;box-shadow:var(--shadow)}
+  tbody td{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border:0;white-space:normal;max-width:none;text-align:end}
+  tbody td::before{content:attr(data-label);font-weight:600;color:var(--muted);text-align:start;flex:0 0 36%}
+  tbody td[data-label=""]::before{display:none}
+  tbody td.cell-company{font-size:15px;font-weight:700;text-align:start}
+  tbody td.cell-company::before{display:none}
+  .cell-notes{white-space:normal;overflow:visible;text-overflow:clip}
+  .row-actions{margin-inline-start:auto}
+  .kanban{grid-template-columns:1fr}
+  .modal-bg{padding:0;align-items:flex-end}
+  .modal{max-width:none;max-height:94vh;border-radius:16px 16px 0 0}
+  .modal .row{flex-direction:column;gap:10px}
+  .toast{inset-inline:12px;bottom:12px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media (forced-colors:active){.pill{border:1px solid CanvasText}}
 </style>
 </head>
 <body>
 <div id="app"></div>
+<div id="live" class="sr-only" role="status" aria-live="polite"></div>
 
 <script>
 /* ===========================================================
@@ -197,7 +261,23 @@ tbody tr.archived td{opacity:.62}
 /* ---------- Constants ---------- */
 const STORAGE_KEY = 'jobtrack-community-data-v1';
 const UI_KEY      = 'jobtrack-community-ui-v1';
-const FB_KEY      = 'jobtrack-community-fbconfig-v1';
+const SYNC_KEY    = 'jobtrack-community-sync-on-v1';
+const SYNCED_KEY  = 'jobtrack-community-synced-ids-v1';
+const UID_KEY     = 'jobtrack-community-last-uid-v1';
+const ACK_KEY     = 'jobtrack-community-privacy-ack-v1';
+const REPO_URL    = 'https://github.com/Tomer-HL/job-search-portal';
+/* Public web config of the shared Firebase project. It is an identifier, not a secret:
+   access is enforced by Firestore security rules (firestore.rules) and Auth authorized domains. */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCxe9Olf5GAOGmHG6kGSHD9SXkgVBPn0fU",
+  authDomain: "tomer-jobs.firebaseapp.com",
+  projectId: "tomer-jobs",
+  storageBucket: "tomer-jobs.firebasestorage.app",
+  messagingSenderId: "167082532968",
+  appId: "1:167082532968:web:5d7f4f1f69b04c65d19bdd"
+};
+const FB_SDK = 'https://www.gstatic.com/firebasejs/10.13.2/';
+const CLOUD_COLLECTION = 'applications';
 const LANG_KEY    = 'jobtrack-community-lang';
 const SEEN_KEY    = 'jobtrack-community-onboarded';
 
@@ -229,6 +309,59 @@ const ARRANGEMENTS = [
 /* ---------- i18n ---------- */
 const I18N = {
   he: {
+    skipToContent: "דלג לתוכן הראשי",
+    language: "שפה",
+    sortBy: "מיון לפי",
+    tableCaption: "רשימת משרות",
+    openLink: "פתח קישור למשרה",
+    newTab: "נפתח בלשונית חדשה",
+    signInSync: "התחבר לסנכרון",
+    syncConnecting: "מתחבר…",
+    syncedLabel: "מסונכרן",
+    offlineLabel: "לא מקוון",
+    syncErrorLabel: "שגיאת סנכרון",
+    moreDetails: "פרטים נוספים",
+    connection: "איש קשר / הפניה",
+    interviewer: "מראיין/ת",
+    interviewRound: "שלב ראיון",
+    nextInterview: "ראיון הבא",
+    prepNotes: "הערות הכנה",
+    resumeVersion: "גרסת קורות חיים",
+    coverLetter: "מכתב מקדים",
+    portfolio: "פורטפוליו",
+    salary: "שכר / ציפיות",
+    feat1Desc: "כברירת מחדל הנתונים נשמרים בדפדפן שלך, בלי רישום.",
+    feat3Title: "סנכרון בין מכשירים",
+    feat3Desc: "התחברות אופציונלית עם Google, כדי לעבוד על אותם נתונים בטלפון ובמחשב.",
+    syncDesc: "כברירת מחדל הכל נשמר רק בדפדפן הזה. התחבר עם Google כדי לעבוד על אותם נתונים בטלפון ובמחשב, בסנכרון אוטומטי.",
+    cloudActive: "סנכרון פעיל - הנתונים מסונכרנים עם חשבון Google שלך",
+    syncedDesc: "השינויים נשמרים אוטומטית וזמינים בכל מכשיר שבו תתחבר עם אותו חשבון. אפשר להמשיך לעבוד גם בלי חיבור לרשת, והשינויים יסונכרנו כשהחיבור יחזור.",
+    consentText: "קראתי את הודעת הפרטיות ואני מסכים/ה לשמירת הנתונים שלי בחשבון שלי ב-Firebase של Google.",
+    signInGoogle: "התחברות עם Google",
+    signOut: "התנתקות",
+    signOutConfirm: "להתנתק? העותק המקומי במכשיר הזה יימחק. הנתונים נשארים בחשבון שלך ויופיעו שוב בהתחברות.",
+    deleteMyData: "מחק את הנתונים והחשבון שלי",
+    deleteMyDataDesc: "מוחק לצמיתות את כל המשרות מהענן ואת החיבור לחשבון, בכל המכשירים. מומלץ לייצא גיבוי קודם.",
+    deleteConfirm: "למחוק לצמיתות את כל הנתונים שלך מהענן ואת החשבון? אי אפשר לבטל. מומלץ לייצא גיבוי קודם.",
+    signedOut: "התנתקת",
+    deletedAll: "כל הנתונים והחשבון נמחקו",
+    clearAllCloudConfirm: "בטוח שברצונך למחוק את כל הנתונים? הם יימחקו גם מהענן ומכל המכשירים. אין דרך לבטל.",
+    errDomain: "הדומיין הזה לא מאושר להתחברות. פנה למפעיל האתר.",
+    errNetwork: "אין חיבור לרשת. נסה שוב.",
+    errPopup: "החלון נחסם. אפשר חלונות קופצים ונסה שוב.",
+    errAuth: "ההתחברות נכשלה. נסה שוב.",
+    rulesDenied: "אין הרשאה לשמור בענן. פנה למפעיל האתר.",
+    back: "חזרה",
+    contactLink: "פנייה דרך GitHub",
+    sourceCode: "קוד מקור",
+    privacyLink: "פרטיות",
+    a11yLink: "הצהרת נגישות",
+    privacyTitle: "הודעת פרטיות",
+    privacyUpdated: "עודכן לאחרונה: 24.11.2026",
+    privacySections: [{"h": "מה זה JobTrack", "p": ["JobTrack הוא כלי חינמי לניהול חיפוש עבודה. כברירת מחדל הוא עובד במצב מקומי: הנתונים נשמרים רק בדפדפן שלך ואינם נשלחים לשום שרת."]}, {"h": "מה נשמר כשמתחברים עם Google", "ul": ["פרטי המשרות שהזנת: חברה, תפקיד, סטטוס, תאריכים, הערות, ופרטים נוספים שבחרת למלא (כמו איש קשר, מראיין או שכר).", "מזהה חשבון Google, כתובת אימייל ושם, כפי שנמסרים על ידי Google, לצורך זיהוי בלבד."]}, {"h": "היכן הנתונים נשמרים ומי יכול לראות אותם", "p": ["הנתונים נשמרים בשירותי Firebase של Google (Authentication ו-Firestore). חוקי האבטחה מאפשרים לכל משתמש לקרוא ולכתוב רק את הנתונים של עצמו.", "מפעיל השירות מנהל את פרויקט ה-Firebase, ולכן יש לו מבחינה טכנית גישת ניהול למסד הנתונים. הנתונים אינם נמכרים, אינם מועברים לצדדים שלישיים ואינם משמשים לפרסום."]}, {"h": "עוגיות ומעקב", "p": ["אין פרסומות, אין כלי אנליטיקה ואין מעקב. האפליקציה משתמשת באחסון מקומי בדפדפן רק עבור הנתונים שלך, העדפות (כמו שפה) וההתחברות."]}, {"h": "הזכויות והשליטה שלך", "ul": ["ייצוא: אפשר להוריד את כל הנתונים לקובץ בכל עת.", "מחיקה: בחלון הסנכרון אפשר למחוק את כל הנתונים שלך מהענן ואת החשבון, בלחיצה אחת.", "בחירה: אפשר לעבוד במצב מקומי בלבד, בלי להתחבר בכלל."]}, {"h": "שמירת נתונים", "p": ["הנתונים נשמרים עד שתמחק אותם. לאחר מחיקה הם מוסרים ממסד הנתונים, ועותקי גיבוי של Google עשויים להישמר לפרק זמן מוגבל."]}, {"h": "יצירת קשר", "p": ["שאלות ובקשות בנושא פרטיות אפשר להפנות דרך עמוד ה-Issues של הפרויקט ב-GitHub."]}],
+    a11yTitle: "הצהרת נגישות",
+    a11yUpdated: "עודכן לאחרונה: 24.11.2026",
+    a11ySections: [{"h": "המחויבות שלנו", "p": ["אנחנו שואפים שהאפליקציה תהיה נגישה לכמה שיותר אנשים, כולל משתמשי מקלדת וקורא מסך, ושואפים לעמוד בהנחיות WCAG 2.1 ברמה AA ובתקן הישראלי ת\"י 5568. האפליקציה לא עברה ביקורת נגישות רשמית."]}, {"h": "מה כלול", "ul": ["ניווט מלא במקלדת, עם סימון מיקוד ברור וקישור \"דלג לתוכן הראשי\".", "תמיכה בקורא מסך: תוויות לשדות ולכפתורים, כותרות לחלונות והודעות מצב.", "ניגודיות צבעים לפי רמה AA, והגדלת תצוגה עד 200% בלי אובדן תוכן.", "בטלפון: תצוגת כרטיסים, ויעדי מגע בגודל של לפחות 44 פיקסלים.", "כיבוד העדפת \"צמצום תנועה\" של מערכת ההפעלה.", "עברית (מימין לשמאל) ואנגלית."]}, {"h": "מגבלות ידועות", "ul": ["חלון אישור המחיקה הוא חלון מובנה של הדפדפן, ונגישותו תלויה בדפדפן.", "חלון ההתחברות עם Google מופעל על ידי Google ואינו בשליטתנו.", "לא נבדקו כל שילובי קורא המסך והדפדפן."]}, {"h": "משוב", "p": ["נתקלת בקושי? נשמח לשמוע ולתקן. אפשר לפנות דרך עמוד ה-Issues של הפרויקט ב-GitHub."]}],
     appName: 'JobTrack', tagline: 'מעקב חיפוש עבודה',
     addJob: 'הוסף משרה', export: 'ייצוא', import: 'ייבוא', sync: 'סנכרון', settings: 'הגדרות',
     search: 'חיפוש לפי חברה, תפקיד, מיקום…',
@@ -242,9 +375,9 @@ const I18N = {
     addFirstJob: 'הוסף משרה ראשונה',
     confirmDelete: 'למחוק את המשרה הזו? לא ניתן לבטל.',
     welcomeTitle: 'ברוכים הבאים ל-JobTrack', welcomeDesc: 'מערכת חופשית לניהול חיפוש עבודה - פרטית, מקומית, שלך.',
-    feat1Title: 'מקומי לחלוטין', feat1Desc: 'הנתונים נשמרים בדפדפן שלך. אין שרת, אין רישום.',
+    feat1Title: 'מקומי לחלוטין', 
     feat2Title: 'PWA', feat2Desc: 'התקן כאפליקציה, עבוד גם אופליין.',
-    feat3Title: 'סנכרון אופציונלי', feat3Desc: 'בחר להפעיל Firebase לסנכרון בין מכשירים.',
+    
     feat4Title: 'ייצוא/ייבוא', feat4Desc: 'גבה הכל לקובץ JSON בלחיצה.',
     tipsTitle: 'טיפים להצלחה:',
     tip1: 'עדכן סטטוס מיד אחרי כל אינטראקציה - זה בונה תמונה אמיתית.',
@@ -252,9 +385,9 @@ const I18N = {
     tip3: 'אל תפחד "להגיש המון" - המספרים עוזרים לראות איפה אתה עומד.',
     tip4: 'גבה את הנתונים פעם בשבוע באמצעות "ייצוא".',
     getStarted: 'בואו נתחיל', skipForNow: 'דלג',
-    syncTitle: 'סנכרון בין מכשירים', syncDesc: 'כברירת מחדל הכל נשמר רק בדפדפן הזה. רוצה לסנכרן עם הטלפון? חבר חשבון Firebase חינמי (5 דקות הגדרה).',
+    syncTitle: 'סנכרון בין מכשירים', 
     localOnly: 'מצב מקומי - הנתונים שמורים רק בדפדפן הזה',
-    cloudActive: 'סנכרון פעיל - מחובר ל-Firebase',
+    
     setupFirebase: 'הגדרת Firebase', firebaseConfigPlaceholder: 'הדבק כאן את firebaseConfig מ-Firebase Console',
     fbStep1: '1. כנס ל-Firebase Console וצור פרויקט חדש (חינם)',
     fbStep2: '2. הוסף אפליקציית Web והעתק את אובייקט firebaseConfig',
@@ -271,6 +404,59 @@ const I18N = {
     selectFile: 'בחר קובץ', noFileSelected: 'לא נבחר קובץ', invalidFile: 'קובץ לא תקין',
   },
   en: {
+    skipToContent: "Skip to main content",
+    language: "Language",
+    sortBy: "Sort by",
+    tableCaption: "Job applications list",
+    openLink: "Open job link",
+    newTab: "opens in a new tab",
+    signInSync: "Sign in to sync",
+    syncConnecting: "Connecting…",
+    syncedLabel: "Synced",
+    offlineLabel: "Offline",
+    syncErrorLabel: "Sync error",
+    moreDetails: "More details",
+    connection: "Contact / referral",
+    interviewer: "Interviewer",
+    interviewRound: "Interview round",
+    nextInterview: "Next interview",
+    prepNotes: "Prep notes",
+    resumeVersion: "Resume version",
+    coverLetter: "Cover letter",
+    portfolio: "Portfolio",
+    salary: "Salary / expectations",
+    feat1Desc: "By default your data stays in your browser, no signup needed.",
+    feat3Title: "Sync Across Devices",
+    feat3Desc: "Optional Google sign-in, to use the same data on your phone and computer.",
+    syncDesc: "By default everything stays in this browser only. Sign in with Google to use the same data on your phone and computer, synced automatically.",
+    cloudActive: "Sync active — your data is synced with your Google account",
+    syncedDesc: "Changes save automatically and are available on every device where you sign in with the same account. You can keep working offline; changes sync when you reconnect.",
+    consentText: "I have read the privacy notice and agree to store my data in my account on Google Firebase.",
+    signInGoogle: "Sign in with Google",
+    signOut: "Sign out",
+    signOutConfirm: "Sign out? The local copy on this device will be removed. Your data stays in your account and returns when you sign in.",
+    deleteMyData: "Delete my data and account",
+    deleteMyDataDesc: "Permanently deletes all your jobs from the cloud and your account link, on every device. Export a backup first.",
+    deleteConfirm: "Permanently delete all your cloud data and your account? This cannot be undone. Export a backup first.",
+    signedOut: "Signed out",
+    deletedAll: "All data and the account were deleted",
+    clearAllCloudConfirm: "Delete all data? It will also be deleted from the cloud and from all your devices. This cannot be undone.",
+    errDomain: "This domain is not authorized for sign-in. Contact the site operator.",
+    errNetwork: "No network connection. Try again.",
+    errPopup: "The sign-in window was blocked. Allow pop-ups and try again.",
+    errAuth: "Sign-in failed. Please try again.",
+    rulesDenied: "Not allowed to save to the cloud. Contact the site operator.",
+    back: "Back",
+    contactLink: "Contact via GitHub",
+    sourceCode: "Source code",
+    privacyLink: "Privacy",
+    a11yLink: "Accessibility statement",
+    privacyTitle: "Privacy Notice",
+    privacyUpdated: "Last updated: 24 Nov 2026",
+    privacySections: [{"h": "What JobTrack is", "p": ["JobTrack is a free job-search tracker. By default it works in local mode: your data stays in your browser and is not sent to any server."]}, {"h": "What is stored when you sign in with Google", "ul": ["The job entries you create: company, role, status, dates, notes, and any extra details you choose to fill in (such as contact, interviewer or salary).", "Your Google account ID, email address and name, as provided by Google, used only to identify you."]}, {"h": "Where data is stored and who can see it", "p": ["Data is stored in Google Firebase services (Authentication and Firestore). Security rules let each user read and write only their own data.", "The service operator administers the Firebase project and therefore has technical administrative access to the database. Data is not sold, not shared with third parties and not used for advertising."]}, {"h": "Cookies and tracking", "p": ["There are no ads, no analytics and no tracking. The app uses browser storage only for your data, preferences (such as language) and sign-in."]}, {"h": "Your rights and controls", "ul": ["Export: download all your data to a file at any time.", "Delete: in the sync window you can delete all your cloud data and your account with one click.", "Choice: you can use local mode only and never sign in."]}, {"h": "Retention", "p": ["Data is kept until you delete it. After deletion it is removed from the database; Google backup copies may remain for a limited period."]}, {"h": "Contact", "p": ["Privacy questions and requests can be raised through the project issues page on GitHub."]}],
+    a11yTitle: "Accessibility Statement",
+    a11yUpdated: "Last updated: 24 Nov 2026",
+    a11ySections: [{"h": "Our commitment", "p": ["We aim to make the app accessible to as many people as possible, including keyboard and screen-reader users, and aim to meet WCAG 2.1 level AA and the Israeli standard SI 5568. The app has not undergone a formal accessibility audit."]}, {"h": "What is included", "ul": ["Full keyboard navigation, a clearly visible focus indicator and a \"Skip to main content\" link.", "Screen-reader support: labelled fields and buttons, dialog titles and status announcements.", "AA colour contrast, and zoom up to 200% without loss of content.", "On phones: a card layout and touch targets of at least 44 pixels.", "Respect for the operating system \"reduce motion\" setting.", "Hebrew (right-to-left) and English."]}, {"h": "Known limitations", "ul": ["The delete confirmation is a built-in browser dialog; its accessibility depends on the browser.", "The Google sign-in window is run by Google and is outside our control.", "Not every screen-reader and browser combination has been tested."]}, {"h": "Feedback", "p": ["Having trouble? We would like to hear and fix it. Reach us through the project issues page on GitHub."]}],
     appName: 'JobTrack', tagline: 'Job Search Tracker',
     addJob: 'Add Job', export: 'Export', import: 'Import', sync: 'Sync', settings: 'Settings',
     search: 'Search company, role, location…',
@@ -284,9 +470,9 @@ const I18N = {
     addFirstJob: 'Add first job',
     confirmDelete: 'Delete this job? This cannot be undone.',
     welcomeTitle: 'Welcome to JobTrack', welcomeDesc: 'A free, private, local-first way to manage your job search.',
-    feat1Title: 'Fully Local', feat1Desc: 'Data stays in your browser. No server, no signup.',
+    feat1Title: 'Fully Local', 
     feat2Title: 'PWA', feat2Desc: 'Install as an app, works offline.',
-    feat3Title: 'Optional Sync', feat3Desc: 'Enable Firebase to sync across devices.',
+    
     feat4Title: 'Export/Import', feat4Desc: 'Back everything up to JSON in one click.',
     tipsTitle: 'Tips for success:',
     tip1: 'Update status right after each interaction — it builds an honest picture.',
@@ -294,9 +480,9 @@ const I18N = {
     tip3: "Don't be afraid to apply broadly — the numbers help you see where you stand.",
     tip4: 'Back up your data weekly using "Export".',
     getStarted: "Let's go", skipForNow: 'Skip',
-    syncTitle: 'Sync Across Devices', syncDesc: 'By default everything stays in this browser. Want to sync with your phone? Connect a free Firebase account (5-min setup).',
+    syncTitle: 'Sync Across Devices', 
     localOnly: 'Local mode — data is only in this browser',
-    cloudActive: 'Sync active — connected to Firebase',
+    
     setupFirebase: 'Set Up Firebase', firebaseConfigPlaceholder: 'Paste firebaseConfig from Firebase Console here',
     fbStep1: '1. Go to Firebase Console and create a new project (free)',
     fbStep2: '2. Add a Web app and copy the firebaseConfig object',
@@ -318,7 +504,7 @@ const I18N = {
 let DATA = [];
 let UI = { view:'table', search:'', filterStatus:'all', filterArchived:'active', sortBy:'updatedAt', sortDir:'desc' };
 let LANG = 'he';
-let firebaseApp=null, db=null, auth=null, unsubscribe=null, syncEnabled=false, syncState='local';
+let fb=null, currentUser=null, unsubscribe=null, syncEnabled=false, syncState='local', cloudShadow=new Map(), fbReady=null;
 let editingId = null;
 
 /* ---------- Helpers ---------- */
@@ -327,15 +513,28 @@ const uid = () => 'j' + Math.random().toString(36).slice(2,11) + Date.now().toSt
 const escapeHtml = (s) => (s==null?'':String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmtDate = (d) => d ? new Date(d).toLocaleDateString(LANG==='he'?'he-IL':'en-US') : '';
 const todayISO = () => new Date().toISOString().slice(0,10);
+const isArchived = (r) => r.archived === true || r.status === 'archived';
+const EXTRA_FIELDS = ['connection','interviewer','interviewRound','nextInterview','prepNotes','resumeVersion','coverLetter','portfolio','salary'];
+function normalizeRecord(r){
+  const o = { ...r };
+  if (!o.id) o.id = uid();
+  o.id = String(o.id).replace(/[\/\s]+/g, '_');
+  if (!o.appliedAt && o.dateApplied) o.appliedAt = o.dateApplied;
+  return o;
+}
+function toCloud(r){ const o = { ...r }; if (o.appliedAt) o.dateApplied = o.appliedAt; return JSON.parse(JSON.stringify(o)); }
+function sigOf(r){ const o = toCloud(r); return JSON.stringify(Object.keys(o).sort().map(k => [k, o[k]])); }
+function announce(msg){ const l = document.getElementById('live'); if (l){ l.textContent = ''; setTimeout(() => { l.textContent = msg; }, 60); } }
+
 
 function loadState(){
-  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) DATA = JSON.parse(raw); } catch(e){ DATA = []; }
+  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) DATA = JSON.parse(raw).map(normalizeRecord); } catch(e){ DATA = []; }
   try { const raw = localStorage.getItem(UI_KEY); if (raw) Object.assign(UI, JSON.parse(raw)); } catch(e){}
   LANG = localStorage.getItem(LANG_KEY) || 'he';
 }
 function saveData(){
   localStorage.setItem(STORAGE_KEY, JSON.stringify(DATA));
-  if (syncEnabled && db) pushToCloud();
+  if (syncEnabled) uploadDiff();
 }
 function saveUI(){ localStorage.setItem(UI_KEY, JSON.stringify(UI)); }
 function setLang(l){ LANG = l; localStorage.setItem(LANG_KEY, l); document.documentElement.lang = l; document.documentElement.dir = l==='he'?'rtl':'ltr'; render(); }
@@ -343,19 +542,19 @@ function setLang(l){ LANG = l; localStorage.setItem(LANG_KEY, l); document.docum
 /* ---------- Toast ---------- */
 function toast(msg, type=''){
   let el = document.getElementById('toast');
-  if (!el){ el = document.createElement('div'); el.id='toast'; el.className='toast'; document.body.appendChild(el); }
-  el.textContent = msg; el.className = 'toast show ' + type;
+  if (!el){ el = document.createElement('div'); el.id='toast'; el.className='toast'; el.setAttribute('role','status'); el.setAttribute('aria-live','polite'); document.body.appendChild(el); }
+  el.textContent = msg; announce(msg); el.className = 'toast show ' + type;
   clearTimeout(el._t); el._t = setTimeout(()=>{ el.className = 'toast ' + type; }, 2400);
 }
 
 /* ---------- Filters / sort ---------- */
 function applyFilters(){
   let rows = DATA.slice();
-  if (UI.filterArchived === 'active') rows = rows.filter(r => r.status !== 'archived');
-  else if (UI.filterArchived === 'archived') rows = rows.filter(r => r.status === 'archived');
+  if (UI.filterArchived === 'active') rows = rows.filter(r => !isArchived(r));
+  else if (UI.filterArchived === 'archived') rows = rows.filter(r => isArchived(r));
   if (UI.filterStatus !== 'all') rows = rows.filter(r => r.status === UI.filterStatus);
   const q = (UI.search||'').trim().toLowerCase();
-  if (q) rows = rows.filter(r => [r.company,r.jobTitle,r.location,r.notes].some(v => (v||'').toLowerCase().includes(q)));
+  if (q) rows = rows.filter(r => [r.company,r.jobTitle,r.location,r.notes,r.connection].some(v => (v||'').toLowerCase().includes(q)));
   const dir = UI.sortDir === 'asc' ? 1 : -1;
   rows.sort((a,b) => {
     const av = a[UI.sortBy] || ''; const bv = b[UI.sortBy] || '';
@@ -364,7 +563,7 @@ function applyFilters(){
   return rows;
 }
 function getStats(){
-  const active = DATA.filter(r => r.status !== 'archived');
+  const active = DATA.filter(r => !isArchived(r));
   return {
     total: DATA.length,
     active: active.length,
@@ -375,23 +574,41 @@ function getStats(){
 }
 
 /* ---------- Render ---------- */
+function syncChipInfo(){
+  if (syncState === 'connecting') return { cls:'', text:t('syncConnecting') };
+  if (syncEnabled && syncState === 'error') return { cls:'error', text:t('syncErrorLabel') };
+  if (syncEnabled && !navigator.onLine) return { cls:'offline', text:t('offlineLabel') };
+  if (syncEnabled) return { cls:'online', text:t('syncedLabel') };
+  return { cls:'', text:t('signInSync') };
+}
 function render(){
   const app = document.getElementById('app');
+  // remember focus so keyboard / screen-reader users keep their place after a re-render
+  const ae = document.activeElement; let keep = null;
+  if (ae && app.contains(ae)){
+    if (ae.id) keep = '#' + ae.id;
+    else if (ae.dataset && ae.dataset.sort) keep = '[data-sort="' + ae.dataset.sort + '"]';
+    else if (ae.dataset && ae.dataset.view) keep = '[data-view="' + ae.dataset.view + '"]';
+    else if (ae.dataset && ae.dataset.lang) keep = '[data-lang="' + ae.dataset.lang + '"]';
+  }
   const stats = getStats();
   const rows = applyFilters();
+  const chip = syncChipInfo();
+  const sortOpts = [['updatedAt', t('updated')], ['appliedAt', t('applied')], ['company', t('company')], ['status', t('status')]];
   app.innerHTML = `
-    <div class="topbar">
-      <h1><span class="logo">${LANG==='he'?'📋':'📋'}</span>${t('appName')}<span class="sub">${t('tagline')}</span></h1>
+    <a class="skip-link" href="#main">${t('skipToContent')}</a>
+    <div class="topbar" role="banner">
+      <h1><span class="logo" aria-hidden="true">📋</span>${t('appName')}<span class="sub">${t('tagline')}</span></h1>
       <div class="actions">
-        <div class="lang-toggle">
-          <button class="${LANG==='he'?'active':''}" data-lang="he">עב</button>
-          <button class="${LANG==='en'?'active':''}" data-lang="en">EN</button>
+        <div class="lang-toggle" role="group" aria-label="${t('language')}">
+          <button type="button" class="${LANG==='he'?'active':''}" data-lang="he" lang="he" aria-label="עברית" aria-pressed="${LANG==='he'}">עב</button>
+          <button type="button" class="${LANG==='en'?'active':''}" data-lang="en" lang="en" aria-label="English" aria-pressed="${LANG==='en'}">EN</button>
         </div>
-        <span class="sync-chip" id="sync-chip"><span class="sync-dot ${syncState==='online'?'online':syncState==='error'?'error':''}"></span>${syncState==='online'?t('cloudActive').split('—')[0].trim():(LANG==='he'?'מקומי':'Local')}</span>
-        <button class="btn ghost small" id="btn-import">⬆ ${t('import')}</button>
-        <button class="btn ghost small" id="btn-export">⬇ ${t('export')}</button>
-        <button class="btn ghost small" id="btn-settings">⚙ ${t('settings')}</button>
-        <button class="btn primary" id="btn-add">+ ${t('addJob')}</button>
+        <button type="button" class="sync-chip" id="sync-chip" aria-haspopup="dialog"><span class="sync-dot ${chip.cls}" aria-hidden="true"></span>${chip.text}</button>
+        <button type="button" class="btn ghost small hide-mobile" id="btn-import"><span aria-hidden="true">⬆</span> ${t('import')}</button>
+        <button type="button" class="btn ghost small hide-mobile" id="btn-export"><span aria-hidden="true">⬇</span> ${t('export')}</button>
+        <button type="button" class="btn ghost small" id="btn-settings"><span aria-hidden="true">⚙</span> ${t('settings')}</button>
+        <button type="button" class="btn primary" id="btn-add"><span aria-hidden="true">+</span> ${t('addJob')}</button>
       </div>
     </div>
 
@@ -403,31 +620,39 @@ function render(){
       <div class="stat rejected"><div class="label">${t('rejected')}</div><div class="value">${stats.rejected}</div></div>
     </div>
 
-    <div class="toolbar">
-      <input type="search" id="search" placeholder="${t('search')}" value="${escapeHtml(UI.search)}">
-      <select id="filterStatus">
+    <div class="toolbar" role="search">
+      <input type="search" id="search" placeholder="${t('search')}" aria-label="${t('search')}" autocomplete="off" value="${escapeHtml(UI.search)}">
+      <select id="filterStatus" aria-label="${t('status')}">
         <option value="all">${t('allStatuses')}</option>
         ${STATUSES.map(s => `<option value="${s.key}" ${UI.filterStatus===s.key?'selected':''}>${LANG==='he'?s.labelHe:s.labelEn}</option>`).join('')}
       </select>
-      <select id="filterArchived">
+      <select id="filterArchived" aria-label="${t('includeArchived')}">
         <option value="active" ${UI.filterArchived==='active'?'selected':''}>${t('activeOnly')}</option>
         <option value="all" ${UI.filterArchived==='all'?'selected':''}>${t('includeArchived')}</option>
         <option value="archived" ${UI.filterArchived==='archived'?'selected':''}>${t('onlyArchived')}</option>
       </select>
+      ${UI.view==='table' ? `<select id="sortSel" class="mobile-only" aria-label="${t('sortBy')}">${sortOpts.map(o => `<option value="${o[0]}" ${UI.sortBy===o[0]?'selected':''}>${t('sortBy')}: ${o[1]}</option>`).join('')}</select>` : ''}
       <div class="spacer"></div>
-      <div class="view-toggle">
-        <button class="${UI.view==='table'?'active':''}" data-view="table">${t('table')}</button>
-        <button class="${UI.view==='kanban'?'active':''}" data-view="kanban">${t('kanban')}</button>
+      <div class="view-toggle" role="group" aria-label="${t('table')} / ${t('kanban')}">
+        <button type="button" class="${UI.view==='table'?'active':''}" data-view="table" aria-pressed="${UI.view==='table'}">${t('table')}</button>
+        <button type="button" class="${UI.view==='kanban'?'active':''}" data-view="kanban" aria-pressed="${UI.view==='kanban'}">${t('kanban')}</button>
       </div>
     </div>
 
-    <div class="container">
+    <main class="container" id="main" tabindex="-1">
       ${rows.length === 0 && DATA.length === 0 ? renderEmpty() :
-        rows.length === 0 ? `<div class="empty"><div class="ico">🔍</div><h3>${LANG==='he'?'אין תוצאות':'No results'}</h3><p>${LANG==='he'?'נסה לשנות את הסינון':'Try adjusting your filters'}</p></div>` :
+        rows.length === 0 ? `<div class="empty"><div class="ico" aria-hidden="true">🔍</div><h2>${LANG==='he'?'אין תוצאות':'No results'}</h2><p>${LANG==='he'?'נסה לשנות את הסינון':'Try adjusting your filters'}</p></div>` :
         UI.view==='table' ? renderTable(rows) : renderKanban(rows)}
-    </div>
+    </main>
+    <footer class="app-footer">
+      <span>JobTrack · v2.0</span>
+      <button type="button" class="linklike" id="open-privacy">${t('privacyLink')}</button>
+      <button type="button" class="linklike" id="open-a11y">${t('a11yLink')}</button>
+      <a href="${REPO_URL}" target="_blank" rel="noopener">${t('sourceCode')}<span class="sr-only"> (${t('newTab')})</span></a>
+    </footer>
   `;
   attachHandlers();
+  if (keep){ const n = document.querySelector(keep); if (n && n !== document.activeElement) n.focus(); }
 }
 
 function renderEmpty(){
@@ -439,6 +664,8 @@ function renderEmpty(){
   </div>`;
 }
 
+function statusLabel(k){ const s = STATUSES.find(x => x.key === k); return s ? (LANG==='he' ? s.labelHe : s.labelEn) : '—'; }
+function methodLabel(k){ const m = METHODS.find(x => x.key === k); return m ? (LANG==='he' ? m.labelHe : m.labelEn) : ''; }
 function renderTable(rows){
   const cols = [
     {k:'company', l:t('company')},
@@ -450,24 +677,26 @@ function renderTable(rows){
     {k:'updatedAt', l:t('updated')},
     {k:'notes', l:t('notes')},
   ];
+  const ariaSort = (k) => UI.sortBy===k ? (UI.sortDir==='asc' ? 'ascending' : 'descending') : 'none';
   return `<div class="tablewrap"><table>
+    <caption class="sr-only">${t('tableCaption')}</caption>
     <thead><tr>
-      ${cols.map(c => `<th data-sort="${c.k}" class="${UI.sortBy===c.k?'sorted':''}">${c.l}<span class="sort-arrow">${UI.sortBy===c.k?(UI.sortDir==='asc'?'▲':'▼'):'⇅'}</span></th>`).join('')}
-      <th style="cursor:default">${t('actions')}</th>
+      ${cols.map(c => `<th scope="col" aria-sort="${ariaSort(c.k)}" class="${UI.sortBy===c.k?'sorted':''}"><button type="button" class="th-btn" data-sort="${c.k}">${c.l}<span class="sort-arrow" aria-hidden="true">${UI.sortBy===c.k?(UI.sortDir==='asc'?'▲':'▼'):'⇅'}</span></button></th>`).join('')}
+      <th scope="col" style="cursor:default">${t('actions')}</th>
     </tr></thead>
     <tbody>
-      ${rows.map(r => `<tr class="${r.status==='archived'?'archived':''}">
-        <td class="cell-company">${escapeHtml(r.company||'')}</td>
-        <td>${escapeHtml(r.jobTitle||'')}${r.link?` <a href="${escapeHtml(r.link)}" target="_blank" rel="noopener" class="cell-link">↗</a>`:''}</td>
-        <td><span class="pill ${r.status||'saved'}">${LANG==='he'?(STATUSES.find(s=>s.key===r.status)||{labelHe:'—'}).labelHe:(STATUSES.find(s=>s.key===r.status)||{labelEn:'—'}).labelEn}</span></td>
-        <td>${LANG==='he'?(METHODS.find(m=>m.key===r.method)||{labelHe:''}).labelHe:(METHODS.find(m=>m.key===r.method)||{labelEn:''}).labelEn}</td>
-        <td>${escapeHtml(r.location||'')}</td>
-        <td>${fmtDate(r.appliedAt)}</td>
-        <td>${fmtDate(r.updatedAt)}</td>
-        <td class="cell-notes" title="${escapeHtml(r.notes||'')}">${escapeHtml(r.notes||'')}</td>
-        <td><div class="row-actions">
-          <button class="icon-btn edit-row" data-id="${r.id}" title="${t('edit')}">✎</button>
-          <button class="icon-btn del del-row" data-id="${r.id}" title="${t('delete')}">🗑</button>
+      ${rows.map(r => `<tr class="${isArchived(r)?'archived':''}">
+        <td class="cell-company" data-label="${t('company')}">${escapeHtml(r.company||'')}</td>
+        <td data-label="${t('role')}"><span>${escapeHtml(r.jobTitle||'')}${r.link?` <a href="${escapeHtml(r.link)}" target="_blank" rel="noopener" class="cell-link" aria-label="${t('openLink')}: ${escapeHtml(r.company||'')} (${t('newTab')})">↗</a>`:''}</span></td>
+        <td data-label="${t('status')}"><span class="pill ${r.status||'saved'}">${statusLabel(r.status)}</span></td>
+        <td data-label="${t('method')}">${methodLabel(r.method)}</td>
+        <td data-label="${t('location')}">${escapeHtml(r.location||'')}</td>
+        <td data-label="${t('applied')}">${fmtDate(r.appliedAt)}</td>
+        <td data-label="${t('updated')}">${fmtDate(r.updatedAt)}</td>
+        <td class="cell-notes" data-label="${t('notes')}" title="${escapeHtml(r.notes||'')}">${escapeHtml(r.notes||'')}</td>
+        <td data-label=""><div class="row-actions">
+          <button type="button" class="icon-btn edit-row" data-id="${escapeHtml(r.id)}" aria-label="${t('edit')}: ${escapeHtml(r.company||'')}" title="${t('edit')}"><span aria-hidden="true">✎</span></button>
+          <button type="button" class="icon-btn del del-row" data-id="${escapeHtml(r.id)}" aria-label="${t('delete')}: ${escapeHtml(r.company||'')}" title="${t('delete')}"><span aria-hidden="true">🗑</span></button>
         </div></td>
       </tr>`).join('')}
     </tbody>
@@ -478,9 +707,9 @@ function renderKanban(rows){
   const cols = STATUSES.filter(s => s.key !== 'archived');
   return `<div class="kanban">${cols.map(s => {
     const items = rows.filter(r => (r.status || 'saved') === s.key);
-    return `<div class="col">
+    return `<section class="col" aria-label="${LANG==='he'?s.labelHe:s.labelEn} (${items.length})">
       <div class="col-h"><span><span class="pill ${s.key}" style="margin-inline-end:6px">${LANG==='he'?s.labelHe:s.labelEn}</span></span><span class="count">${items.length}</span></div>
-      ${items.map(r => `<div class="card edit-row" data-id="${r.id}">
+      ${items.map(r => `<div class="card edit-row" role="button" tabindex="0" data-id="${escapeHtml(r.id)}" aria-label="${t('edit')}: ${escapeHtml(r.company||'')} — ${escapeHtml(r.jobTitle||'')}">
         <div class="company">${escapeHtml(r.company||'')}</div>
         <div class="role">${escapeHtml(r.jobTitle||'')}</div>
         <div class="meta">
@@ -488,7 +717,7 @@ function renderKanban(rows){
           <span>${fmtDate(r.appliedAt)}</span>
         </div>
       </div>`).join('')}
-    </div>`;
+    </section>`;
   }).join('')}</div>`;
 }
 
@@ -521,6 +750,10 @@ function attachHandlers(){
   document.getElementById('btn-import').onclick = openImportModal;
   document.getElementById('btn-settings').onclick = openSettingsModal;
   document.getElementById('sync-chip').onclick = openSyncModal;
+  const op = document.getElementById('open-privacy'); if (op) op.onclick = () => openLegalModal('privacy');
+  const oa = document.getElementById('open-a11y'); if (oa) oa.onclick = () => openLegalModal('a11y');
+  const ss = document.getElementById('sortSel'); if (ss) ss.onchange = (e) => { UI.sortBy = e.target.value; UI.sortDir = e.target.value === 'company' ? 'asc' : 'desc'; saveUI(); render(); };
+  document.querySelectorAll('.card.edit-row').forEach(c => c.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openJobModal(c.dataset.id); } });
   document.querySelectorAll('.edit-row').forEach(b => b.onclick = (e) => { e.stopPropagation(); openJobModal(b.dataset.id); });
   document.querySelectorAll('.del-row').forEach(b => b.onclick = (e) => {
     e.stopPropagation();
@@ -529,21 +762,63 @@ function attachHandlers(){
 }
 
 /* ---------- Modal infrastructure ---------- */
+let lastFocus = null;
 function openModal(html){
-  closeModal();
+  const had = document.getElementById('modal-bg');
+  closeModal(true);
+  if (!had) lastFocus = document.activeElement;
   const bg = document.createElement('div');
   bg.className = 'modal-bg';
   bg.id = 'modal-bg';
   bg.innerHTML = html;
+  const dlg = bg.querySelector('.modal');
+  if (dlg){
+    dlg.setAttribute('role', 'dialog'); dlg.setAttribute('aria-modal', 'true');
+    const h = dlg.querySelector('h2');
+    if (h){ h.id = 'modal-title'; dlg.setAttribute('aria-labelledby', 'modal-title'); }
+  }
+  // associate labels with their controls (programmatic labels for screen readers)
+  bg.querySelectorAll('label').forEach(l => {
+    if (l.htmlFor || l.querySelector('input,select,textarea')) return;
+    const n = l.nextElementSibling;
+    if (n && /^(INPUT|SELECT|TEXTAREA)$/.test(n.tagName) && n.id) l.htmlFor = n.id;
+  });
+  bg.querySelectorAll('.close').forEach(b => b.setAttribute('aria-label', t('close')));
   bg.addEventListener('click', (e) => { if (e.target === bg) closeModal(); });
+  bg.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape'){ e.stopPropagation(); closeModal(); return; }
+    if (e.key === 'Tab'){
+      const f = [...bg.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select,textarea,summary')].filter(x => x.offsetParent !== null);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length-1];
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
   document.body.appendChild(bg);
-  const closeBtn = bg.querySelector('.close, [data-close]');
-  if (closeBtn) closeBtn.onclick = closeModal;
+  bg.querySelectorAll('.close,[data-close]').forEach(b => { b.onclick = () => closeModal(); });
+  const first = bg.querySelector('input:not([type=checkbox]):not([type=file]),textarea') || bg.querySelector('button');
+  if (first) first.focus();
   return bg;
 }
-function closeModal(){ const m = document.getElementById('modal-bg'); if (m) m.remove(); }
+function closeModal(silent){
+  const m = document.getElementById('modal-bg');
+  if (!m) return;
+  m.remove();
+  if (silent !== true && lastFocus && document.contains(lastFocus)){ try { lastFocus.focus(); } catch(_){} }
+}
 
 /* ---------- Job add/edit ---------- */
+
+function extraFieldsHtml(r){
+  const rows = EXTRA_FIELDS.map(k => k === 'prepNotes'
+    ? `<div class="field"><label>${t(k)}</label><textarea id="x-${k}">${escapeHtml(r[k]||'')}</textarea></div>`
+    : `<div class="field"><label>${t(k)}</label><input id="x-${k}" value="${escapeHtml(r[k]||'')}"></div>`).join('');
+  const open = EXTRA_FIELDS.some(k => r[k]) ? ' open' : '';
+  return `<details class="more"${open}><summary>${t('moreDetails')}</summary>${rows}</details>`;
+}
+function readExtra(bg){ const o = {}; EXTRA_FIELDS.forEach(k => { const el = bg.querySelector('#x-' + k); if (el) o[k] = el.value.trim(); }); return o; }
+
 function openJobModal(id){
   editingId = id || null;
   const r = id ? DATA.find(d => d.id === id) : { id: uid(), status:'saved', appliedAt: todayISO(), updatedAt: todayISO() };
@@ -551,8 +826,8 @@ function openJobModal(id){
   const html = `<div class="modal">
     <div class="modal-h"><h2>${id?t('edit'):t('addJob')}</h2><button class="close">×</button></div>
     <div class="modal-b">
-      <div class="field"><label>${t('company')} *</label><input id="f-company" value="${escapeHtml(r.company||'')}" autofocus></div>
-      <div class="field"><label>${t('role')} *</label><input id="f-jobTitle" value="${escapeHtml(r.jobTitle||'')}"></div>
+      <div class="field"><label>${t('company')} *</label><input id="f-company" value="${escapeHtml(r.company||'')}" aria-required="true" autofocus></div>
+      <div class="field"><label>${t('role')} *</label><input id="f-jobTitle" value="${escapeHtml(r.jobTitle||'')}" aria-required="true"></div>
       <div class="field"><div class="row">
         <div><label>${t('status')}</label><select id="f-status">${STATUSES.map(s=>`<option value="${s.key}" ${r.status===s.key?'selected':''}>${LANG==='he'?s.labelHe:s.labelEn}</option>`).join('')}</select></div>
         <div><label>${t('method')}</label><select id="f-method">${METHODS.map(m=>`<option value="${m.key}" ${r.method===m.key?'selected':''}>${LANG==='he'?m.labelHe:m.labelEn}</option>`).join('')}</select></div>
@@ -566,6 +841,7 @@ function openJobModal(id){
         <div><label>${t('link')}</label><input id="f-link" value="${escapeHtml(r.link||'')}" placeholder="https://..."></div>
       </div></div>
       <div class="field"><label>${t('notes')}</label><textarea id="f-notes" placeholder="${LANG==='he'?'תרשום פרטים, שמות מראיינים, רשמים…':'Notes, interviewers, impressions…'}">${escapeHtml(r.notes||'')}</textarea></div>
+      ${extraFieldsHtml(r)}
     </div>
     <div class="modal-f">
       <button class="btn ghost" data-close>${t('cancel')}</button>
@@ -587,6 +863,7 @@ function openJobModal(id){
       appliedAt: bg.querySelector('#f-appliedAt').value,
       link: bg.querySelector('#f-link').value.trim(),
       notes: bg.querySelector('#f-notes').value,
+      ...readExtra(bg),
       updatedAt: todayISO(),
     };
     const existing = DATA.findIndex(d => d.id === r.id);
@@ -655,7 +932,8 @@ function openSettingsModal(){
       <div class="sync-section">
         <h3>${t('aboutTitle')}</h3>
         <div style="font-size:12px;color:var(--muted)">${t('aboutText')}</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:6px">v1.0 · MIT License</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:6px">v2.0 · MIT License</div>
+        <div style="margin-top:8px"><button type="button" class="linklike" id="s-privacy">${t('privacyLink')}</button> · <button type="button" class="linklike" id="s-a11y">${t('a11yLink')}</button></div>
       </div>
     </div>
     <div class="modal-f"><button class="btn ghost" data-close>${t('close')}</button></div>
@@ -664,57 +942,66 @@ function openSettingsModal(){
   bg.querySelectorAll('[data-set-lang]').forEach(b => b.onclick = () => { setLang(b.dataset.setLang); closeModal(); openSettingsModal(); });
   bg.querySelector('#s-export').onclick = () => { closeModal(); exportData(); };
   bg.querySelector('#s-import').onclick = () => { closeModal(); openImportModal(); };
+  bg.querySelector('#s-privacy').onclick = () => openLegalModal('privacy');
+  bg.querySelector('#s-a11y').onclick = () => openLegalModal('a11y');
   bg.querySelector('#s-clear').onclick = () => {
-    if (confirm(t('clearAllConfirm'))){ DATA = []; saveData(); closeModal(); render(); toast(t('deleted'), 'success'); }
+    if (confirm(syncEnabled ? t('clearAllCloudConfirm') : t('clearAllConfirm'))){ DATA = []; saveData(); closeModal(); render(); toast(t('deleted'), 'success'); }
   };
 }
 
 /* ---------- Sync modal ---------- */
 function openSyncModal(){
+  const signedIn = !!(syncEnabled && currentUser);
+  const acked = !!localStorage.getItem(ACK_KEY);
   const html = `<div class="modal">
-    <div class="modal-h"><h2>${t('syncTitle')}</h2><button class="close">×</button></div>
-    <div class="modal-b">
-      <div class="sync-status ${syncEnabled?'online':'local'}">${syncEnabled?'✓ '+t('cloudActive'):t('localOnly')}</div>
-      <p style="font-size:13px;color:var(--muted);margin:0 0 14px">${t('syncDesc')}</p>
-      ${syncEnabled ? `
-        <button class="btn danger" id="sync-disable">${t('disableSync')}</button>
-      ` : `
-        <div class="sync-section">
-          <h3>${t('setupFirebase')}</h3>
-          <div class="step">${t('fbStep1')} → <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a></div>
-          <div class="step">${t('fbStep2')}</div>
-          <div class="step">${t('fbStep3')}</div>
-          <div class="step">${t('fbStep4')}</div>
-          <textarea id="fb-config" placeholder="${t('firebaseConfigPlaceholder')}" style="width:100%;min-height:140px;font-family:monospace;font-size:11px;padding:8px;border:1px solid var(--border);border-radius:6px;margin-top:10px"></textarea>
-          <button class="btn primary" id="fb-enable" style="background:var(--primary);color:#fff;border-color:var(--primary);margin-top:8px">${t('enableSync')}</button>
+    <div class="modal-h"><h2>${t('syncTitle')}</h2><button type="button" class="close">×</button></div>
+    <div class="modal-b legal">
+      <div class="sync-status ${signedIn?'online':'local'}">${signedIn?'✓ '+t('cloudActive'):t('localOnly')}</div>
+      ${signedIn ? `
+        <div class="acct"><div><b>${escapeHtml(currentUser.displayName||'')}</b>${escapeHtml(currentUser.email||'')}</div></div>
+        <p>${t('syncedDesc')}</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+          <button type="button" class="btn ghost" id="sync-signout">${t('signOut')}</button>
+          <button type="button" class="btn danger" id="sync-delete">${t('deleteMyData')}</button>
         </div>
+        <p style="font-size:12px;color:var(--muted)">${t('deleteMyDataDesc')}</p>
+        <p><button type="button" class="linklike" id="sync-privacy">${t('privacyLink')}</button></p>
+      ` : `
+        <p>${t('syncDesc')}</p>
+        <label class="consent"><input type="checkbox" id="sync-ack" ${acked?'checked':''}><span>${t('consentText')} <button type="button" class="linklike" id="sync-privacy">${t('privacyLink')}</button></span></label>
+        <button type="button" class="btn google" id="sync-google" ${acked?'':'disabled'}>${t('signInGoogle')}</button>
       `}
     </div>
-    <div class="modal-f"><button class="btn ghost" data-close>${t('close')}</button></div>
+    <div class="modal-f"><button type="button" class="btn ghost" data-close>${t('close')}</button></div>
   </div>`;
   const bg = openModal(html);
-  if (!syncEnabled){
-    bg.querySelector('#fb-enable').onclick = () => {
-      const raw = bg.querySelector('#fb-config').value.trim();
-      try {
-        // Extract firebaseConfig object from pasted code
-        let cfg;
-        const m = raw.match(/\{[\s\S]*\}/);
-        if (!m) throw new Error('no object');
-        cfg = (new Function('return ' + m[0]))();
-        if (!cfg.apiKey || !cfg.projectId) throw new Error('missing keys');
-        localStorage.setItem(FB_KEY, JSON.stringify(cfg));
-        initFirebase().then(()=>{ closeModal(); toast(t('cloudActive'), 'success'); render(); });
-      } catch(e){ toast(t('invalidConfig'), 'error'); }
-    };
+  const priv = bg.querySelector('#sync-privacy'); if (priv) priv.onclick = () => openLegalModal('privacy', true);
+  if (signedIn){
+    bg.querySelector('#sync-signout').onclick = signOutUser;
+    bg.querySelector('#sync-delete').onclick = deleteMyData;
   } else {
-    bg.querySelector('#sync-disable').onclick = () => {
-      localStorage.removeItem(FB_KEY);
-      if (unsubscribe) unsubscribe();
-      syncEnabled = false; syncState = 'local'; db = null; firebaseApp = null;
-      closeModal(); render(); toast(LANG==='he'?'סנכרון בוטל':'Sync disabled');
-    };
+    const ack = bg.querySelector('#sync-ack'), go = bg.querySelector('#sync-google');
+    ack.onchange = () => { go.disabled = !ack.checked; };
+    go.onclick = () => { localStorage.setItem(ACK_KEY, todayISO()); closeModal(true); signInWithGoogle(); };
   }
+}
+
+/* ---------- Privacy / accessibility notices ---------- */
+function openLegalModal(kind, back){
+  const L = I18N[LANG];
+  const isP = kind === 'privacy';
+  const sections = isP ? L.privacySections : L.a11ySections;
+  const body = sections.map(s => `<h3>${escapeHtml(s.h)}</h3>${(s.p||[]).map(p => `<p>${escapeHtml(p)}</p>`).join('')}${s.ul ? `<ul>${s.ul.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ul>` : ''}`).join('');
+  const html = `<div class="modal">
+    <div class="modal-h"><h2>${escapeHtml(isP ? L.privacyTitle : L.a11yTitle)}</h2><button type="button" class="close">×</button></div>
+    <div class="modal-b legal">${body}
+      <p><a href="${REPO_URL}/issues" target="_blank" rel="noopener">${t('contactLink')}<span class="sr-only"> (${t('newTab')})</span></a></p>
+      <p class="upd">${escapeHtml(isP ? L.privacyUpdated : L.a11yUpdated)}</p>
+    </div>
+    <div class="modal-f">${back ? `<button type="button" class="btn ghost" id="legal-back">${t('back')}</button>` : ''}<button type="button" class="btn ghost" data-close>${t('close')}</button></div>
+  </div>`;
+  const bg = openModal(html);
+  const b = bg.querySelector('#legal-back'); if (b) b.onclick = () => openSyncModal();
 }
 
 /* ---------- Import / Export ---------- */
@@ -748,10 +1035,10 @@ function openImportModal(){
       const parsed = JSON.parse(txt);
       const arr = Array.isArray(parsed) ? parsed : (parsed.data || []);
       if (!Array.isArray(arr)) throw new Error('not array');
-      if (mode === 'replace') DATA = arr.map(d => ({ ...d, id: d.id || uid() }));
+      if (mode === 'replace') DATA = arr.map(normalizeRecord);
       else { // merge
         const map = new Map(DATA.map(d => [d.id, d]));
-        arr.forEach(d => { const id = d.id || uid(); map.set(id, { ...d, id }); });
+        arr.forEach(d => { const rec = normalizeRecord(d); map.set(rec.id, rec); });
         DATA = [...map.values()];
       }
       saveData(); closeModal(); render(); toast(t('imported'), 'success');
@@ -761,48 +1048,151 @@ function openImportModal(){
   bg.querySelector('#imp-merge').onclick = () => doImport('merge');
 }
 
-/* ---------- Firebase (optional) ---------- */
-async function initFirebase(){
-  const raw = localStorage.getItem(FB_KEY);
-  if (!raw) return;
-  try {
-    const cfg = JSON.parse(raw);
-    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js');
-    const fbAuth = await import('https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js');
-    const fbStore = await import('https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js');
-    firebaseApp = initializeApp(cfg);
-    auth = fbAuth.getAuth(firebaseApp);
-    db = fbStore.getFirestore(firebaseApp);
-    // Sign in anonymously so each device gets its own user namespace, but optionally hook to Google sign-in later
-    await fbAuth.signInAnonymously(auth);
-    fbAuth.onAuthStateChanged(auth, async (user) => {
-      if (!user) return;
-      const colRef = fbStore.collection(db, 'users', user.uid, 'jobs');
-      unsubscribe = fbStore.onSnapshot(colRef, (snap) => {
-        if (snap.metadata.hasPendingWrites) return;
-        const cloud = snap.docs.map(d => ({ ...d.data(), id: d.id }));
-        if (cloud.length > 0 || DATA.length === 0){
-          DATA = cloud;
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(DATA));
-          render();
-        } else {
-          // first time: push local up
-          pushToCloud();
-        }
-      }, () => { syncState = 'error'; render(); });
-    });
-    syncEnabled = true; syncState = 'online';
-  } catch(e){ syncState = 'error'; console.error(e); }
+/* ---------- Cloud sync (Google sign-in + Firestore) ---------- */
+function loadFirebase(){
+  if (fbReady) return fbReady;
+  fbReady = (async () => {
+    const [appM, authM, fsM] = await Promise.all([
+      import(FB_SDK + 'firebase-app.js'), import(FB_SDK + 'firebase-auth.js'), import(FB_SDK + 'firebase-firestore.js')
+    ]);
+    const app = appM.initializeApp(FIREBASE_CONFIG);
+    const auth = authM.getAuth(app);
+    let db;
+    try { db = fsM.initializeFirestore(app, { localCache: fsM.persistentLocalCache({ tabManager: fsM.persistentMultipleTabManager() }) }); }
+    catch(e){ db = fsM.getFirestore(app); }
+    fb = { app, auth, db, fa: authM, fs: fsM };
+    authM.onAuthStateChanged(auth, onAuthChanged);
+    return fb;
+  })().catch(e => { fbReady = null; throw e; });
+  return fbReady;
 }
-async function pushToCloud(){
-  if (!db || !auth || !auth.currentUser) return;
+async function startSync(){
   try {
-    const fbStore = await import('https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js');
-    const uidv = auth.currentUser.uid;
-    for (const r of DATA){
-      await fbStore.setDoc(fbStore.doc(db, 'users', uidv, 'jobs', r.id), r);
+    syncState = 'connecting'; render();
+    await loadFirebase();
+    fb.fa.getRedirectResult(fb.auth).catch(e => { toast(authErrorText(e), 'error'); });
+  } catch(e){
+    console.error(e);
+    syncEnabled = false; syncState = navigator.onLine ? 'error' : 'local'; render();
+  }
+}
+function authErrorText(e){
+  const c = (e && e.code) || '';
+  if (c === 'auth/unauthorized-domain') return t('errDomain');
+  if (c === 'auth/network-request-failed') return t('errNetwork');
+  if (c === 'auth/popup-blocked') return t('errPopup');
+  return t('errAuth');
+}
+async function signInWithGoogle(){
+  syncState = 'connecting'; render();
+  try {
+    await loadFirebase();
+    const provider = new fb.fa.GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+    localStorage.setItem(SYNC_KEY, '1');
+    const standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone;
+    if (standalone){ await fb.fa.signInWithRedirect(fb.auth, provider); return; }
+    try { await fb.fa.signInWithPopup(fb.auth, provider); }
+    catch(e){
+      if (e.code === 'auth/popup-blocked' || e.code === 'auth/operation-not-supported-in-this-environment'){ await fb.fa.signInWithRedirect(fb.auth, provider); return; }
+      if (e.code === 'auth/popup-closed-by-user' || e.code === 'auth/cancelled-popup-request'){
+        if (!currentUser){ localStorage.removeItem(SYNC_KEY); syncState = 'local'; } else { syncState = 'online'; }
+        render(); return;
+      }
+      throw e;
     }
-  } catch(e){ console.error('push failed', e); }
+  } catch(e){
+    console.error(e); localStorage.removeItem(SYNC_KEY);
+    syncEnabled = false; syncState = 'local'; render(); toast(authErrorText(e), 'error');
+  }
+}
+function onAuthChanged(user){
+  currentUser = user;
+  if (unsubscribe){ unsubscribe(); unsubscribe = null; }
+  cloudShadow = new Map();
+  if (!user){ syncEnabled = false; syncState = 'local'; render(); return; }
+  const prev = localStorage.getItem(UID_KEY);
+  if (prev && prev !== user.uid){ // a different account used this device: never mix their data
+    DATA = []; localStorage.setItem(STORAGE_KEY, '[]'); localStorage.removeItem(SYNCED_KEY);
+  }
+  localStorage.setItem(UID_KEY, user.uid);
+  localStorage.setItem(SYNC_KEY, '1');
+  syncEnabled = true; syncState = 'connecting'; render();
+  const { collection, onSnapshot } = fb.fs;
+  unsubscribe = onSnapshot(collection(fb.db, 'users', user.uid, CLOUD_COLLECTION), handleSnapshot, (err) => {
+    console.error(err); syncState = 'error'; render();
+    toast(err && err.code === 'permission-denied' ? t('rulesDenied') : t('syncErrorLabel'), 'error');
+  });
+}
+function loadSynced(){ try { return new Set(JSON.parse(localStorage.getItem(SYNCED_KEY) || '[]')); } catch(e){ return new Set(); } }
+function handleSnapshot(snap){
+  const cloud = snap.docs.map(d => normalizeRecord({ ...d.data(), id: d.id }));
+  const cloudIds = new Set(cloud.map(r => r.id));
+  const trusted = !snap.metadata.fromCache;       // server-confirmed view: a record missing from it was deleted elsewhere
+  const synced = loadSynced();
+  // keep local records the cloud has never seen (first sign-in / offline-created); drop ones deleted on another device
+  const localKeep = DATA.filter(r => !cloudIds.has(r.id) && (!trusted || !synced.has(r.id)));
+  DATA = cloud.concat(localKeep);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(DATA));
+  cloudShadow = new Map(cloud.map(r => [r.id, sigOf(r)]));
+  if (trusted) localStorage.setItem(SYNCED_KEY, JSON.stringify([...cloudIds]));
+  syncState = 'online'; render();
+  if (trusted) uploadDiff();
+}
+function onWriteError(e){
+  console.error(e); syncState = 'error'; render();
+  toast(e && e.code === 'permission-denied' ? t('rulesDenied') : t('syncErrorLabel'), 'error');
+}
+function uploadDiff(){
+  if (!fb || !currentUser || !syncEnabled) return;
+  const { doc, setDoc, deleteDoc } = fb.fs, u = currentUser.uid;
+  const ids = new Set();
+  DATA.forEach(r => {
+    ids.add(r.id);
+    const sg = sigOf(r);
+    if (cloudShadow.get(r.id) !== sg){
+      cloudShadow.set(r.id, sg);
+      try { setDoc(doc(fb.db, 'users', u, CLOUD_COLLECTION, r.id), toCloud(r)).catch(onWriteError); } catch(e){ onWriteError(e); }
+    }
+  });
+  [...cloudShadow.keys()].forEach(id => {
+    if (!ids.has(id)){
+      cloudShadow.delete(id);
+      try { deleteDoc(doc(fb.db, 'users', u, CLOUD_COLLECTION, id)).catch(onWriteError); } catch(e){ onWriteError(e); }
+    }
+  });
+}
+function resetLocalAccountState(){
+  DATA = []; localStorage.setItem(STORAGE_KEY, '[]');
+  [SYNC_KEY, SYNCED_KEY, UID_KEY].forEach(k => localStorage.removeItem(k));
+  syncEnabled = false; syncState = 'local'; currentUser = null; cloudShadow = new Map();
+}
+async function signOutUser(){
+  if (!confirm(t('signOutConfirm'))) return;
+  try { if (unsubscribe){ unsubscribe(); unsubscribe = null; } await fb.fa.signOut(fb.auth); } catch(e){ console.error(e); }
+  resetLocalAccountState(); closeModal(true); render(); toast(t('signedOut'), 'success');
+}
+async function deleteMyData(){
+  if (!fb || !currentUser) return;
+  if (!confirm(t('deleteConfirm'))) return;
+  const user = currentUser;
+  try {
+    if (unsubscribe){ unsubscribe(); unsubscribe = null; }
+    const { collection, getDocs, writeBatch } = fb.fs;
+    const snap = await getDocs(collection(fb.db, 'users', user.uid, CLOUD_COLLECTION));
+    let batch = writeBatch(fb.db), n = 0;
+    for (const d of snap.docs){ batch.delete(d.ref); if (++n % 400 === 0){ await batch.commit(); batch = writeBatch(fb.db); } }
+    await batch.commit();
+    try { await fb.fa.deleteUser(user); }
+    catch(e){
+      if (e.code === 'auth/requires-recent-login'){ await fb.fa.reauthenticateWithPopup(user, new fb.fa.GoogleAuthProvider()); await fb.fa.deleteUser(user); }
+      else throw e;
+    }
+    resetLocalAccountState(); closeModal(true); render(); toast(t('deletedAll'), 'success');
+  } catch(e){
+    console.error(e); toast(authErrorText(e), 'error');
+    if (fb.auth.currentUser) onAuthChanged(fb.auth.currentUser);   // resume syncing if the account still exists
+  }
 }
 
 /* ---------- Boot ---------- */
@@ -811,7 +1201,9 @@ function boot(){
   document.documentElement.lang = LANG; document.documentElement.dir = LANG==='he'?'rtl':'ltr';
   render();
   if (!localStorage.getItem(SEEN_KEY)) openWelcomeModal();
-  if (localStorage.getItem(FB_KEY)) initFirebase().then(render);
+  if (localStorage.getItem(SYNC_KEY) === '1') startSync();
+  window.addEventListener('online', () => render());
+  window.addEventListener('offline', () => render());
   // Register service worker (PWA)
   if ('serviceWorker' in navigator && location.protocol !== 'file:') {
     navigator.serviceWorker.register('service-worker.js').catch(()=>{});

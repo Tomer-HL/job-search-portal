@@ -1,6 +1,6 @@
 # JobTrack — Community Edition
 
-A free, local-first job application tracker. Your data stays in your browser. No server. No signup. No ads.
+A free job application tracker. Works locally in your browser with no signup, and syncs across your phone and computer when you sign in with Google. No ads. No tracking.
 
 מערכת חופשית לניהול חיפוש עבודה — הנתונים שלך נשמרים אצלך בדפדפן בלבד. ללא שרת, ללא הרשמה, ללא פרסומות.
 
@@ -19,7 +19,8 @@ JobTrack היא אפליקציית ווב פשוטה לניהול חיפוש ע�
 - **PWA** — ניתן להתקין כאפליקציה במחשב או בטלפון, עובד גם אופליין.
 - **שני תצוגות** — טבלה לעבודה רצינית, קנבן (Kanban) לתמונה מהירה.
 - **ייצוא/ייבוא** — גיבוי הכל לקובץ JSON בלחיצה, ייבוא בקלות מאותו קובץ.
-- **סנכרון אופציונלי** — אם רוצים, אפשר לחבר חשבון Firebase חינמי לסנכרון בין מכשירים. הגדרה לוקחת 5 דקות.
+- **סנכרון אופציונלי** — התחברות עם Google, בלחיצה אחת, כדי לעבוד על אותם נתונים בטלפון ובמחשב. בלי הגדרות.
+- **נגישות** — ניווט מקלדת, קורא מסך, ניגודיות AA ותצוגת כרטיסים בטלפון.
 
 ### איך מתחילים?
 
@@ -35,14 +36,15 @@ JobTrack היא אפליקציית ווב פשוטה לניהול חיפוש ע�
 
 ב-Chrome / Edge: יופיע סמל "התקן" בשורת הכתובת. לחצו עליו.
 
-### הפעלת סנכרון בין מכשירים (אופציונלי)
+### סנכרון בין מכשירים (אופציונלי)
 
-ברירת המחדל: הנתונים נשמרים רק בדפדפן הזה. אם אתם רוצים שאותם נתונים יופיעו גם בטלפון:
+ברירת המחדל: הנתונים נשמרים רק בדפדפן הזה. כדי לעבוד על אותם נתונים בטלפון ובמחשב:
 
-1. צרו פרויקט חינמי ב-[Firebase Console](https://console.firebase.google.com).
-2. הוסיפו אפליקציית Web והעתיקו את האובייקט `firebaseConfig`.
-3. הפעילו Firestore Database (מצב production).
-4. ב-JobTrack, לחצו על שבב הסטטוס בפינה והדביקו את ה-config.
+1. לחצו על שבב הסנכרון בפינה העליונה.
+2. קראו את הודעת הפרטיות וסמנו את התיבה.
+3. התחברו עם Google. זהו.
+
+השינויים נשמרים אוטומטית ומופיעים בכל מכשיר. אפשר להמשיך לעבוד גם בלי רשת. בחלון הסנכרון אפשר גם להתנתק, או למחוק את כל הנתונים והחשבון.
 
 ### טיפים לחיפוש עבודה יעיל
 
@@ -66,7 +68,8 @@ JobTrack is a simple web app for managing your job search. Track jobs you've app
 - **PWA** — Installable on desktop or mobile, works offline.
 - **Two views** — Table for serious work, Kanban for a quick visual.
 - **Export/Import** — Back up everything to JSON, restore from the same file.
-- **Optional sync** — Hook up a free Firebase account to sync across devices. 5-min setup.
+- **Optional sync** — Sign in with Google to use the same data on your phone and computer. No setup.
+- **Accessible** — keyboard and screen-reader support, AA contrast, card layout on phones.
 
 ### Getting started
 
@@ -82,14 +85,15 @@ Easiest: visit the [public link](#) (if hosted on GitHub Pages) or download the 
 
 In Chrome / Edge: an "Install" icon appears in the address bar.
 
-### Enable cross-device sync (optional)
+### Cross-device sync (optional)
 
-By default everything stays in this browser only. To sync with your phone:
+By default everything stays in this browser only. To use the same data on your phone and computer:
 
-1. Create a free project on [Firebase Console](https://console.firebase.google.com).
-2. Add a Web app and copy the `firebaseConfig` object.
-3. Enable Firestore Database (production mode).
-4. In JobTrack, click the sync chip in the top corner and paste the config.
+1. Click the sync chip in the top corner.
+2. Read the privacy notice and tick the box.
+3. Sign in with Google. That's it.
+
+Changes save automatically and appear on every device; you can keep working offline. In the sync window you can also sign out, or delete all your data and your account.
 
 ### Tips for an effective search
 
@@ -109,3 +113,17 @@ By default everything stays in this browser only. To sync with your phone:
 ## License
 
 MIT — do whatever you want, no warranty. Made with care for job seekers everywhere. בהצלחה!
+
+## Self-hosting with your own Firebase project
+
+The hosted app uses a shared Firebase project. To run your own copy:
+
+1. Create a Firebase project; enable **Authentication → Google** and **Firestore**.
+2. Add your domain under Authentication → Settings → Authorized domains.
+3. Publish [`firestore.rules`](firestore.rules) in the Firestore console (each user can only access `users/{uid}/applications`).
+4. Replace `FIREBASE_CONFIG` near the top of the script in `index.html` with your own web app config. It is a public identifier, not a secret; the rules are the security boundary.
+5. Deploy the folder as static files (Netlify, GitHub Pages, ...). `netlify.toml` is included.
+
+## Privacy & accessibility
+
+See the **Privacy** and **Accessibility statement** links at the bottom of the app.
