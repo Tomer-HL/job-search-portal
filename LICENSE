@@ -1,21 +1,26 @@
-MIT License
+Copyright (c) 2026 Tomer Hillel Lev. All rights reserved.
 
-Copyright (c) 2026 JobTrack Community Edition
+This software ("JobTrack") is made publicly visible so that anyone can see how
+it works, but it is NOT open-source software.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permitted, free of charge:
+  - Using the hosted application for your own personal job search.
+  - Reading the source code for personal, educational or security-review
+    purposes.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Not permitted without prior written permission from the copyright holder:
+  - Copying, modifying, forking for redistribution, or creating derivative
+    works of the source code or design.
+  - Hosting, republishing or redistributing the software or any substantial
+    part of it, whether free or paid.
+  - Using the software or any part of it in a commercial product or service.
+  - Removing or altering this notice.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+IMPLIED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
+
+Permission requests: open an issue at https://github.com/Tomer-HL/job-search-portal
+
+Third-party: the font files in /fonts (Assistant, Alef) are licensed under the
+SIL Open Font License 1.1; see fonts/OFL-Assistant.txt and fonts/OFL-Alef.txt.

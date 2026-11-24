@@ -4,7 +4,7 @@
 //   - Firebase SDK modules on gstatic.com/firebasejs: cache-first (versioned URLs, so the cache is safe)
 //   - Firebase / Google API traffic (Firestore, Auth): never intercepted — Firestore has its own offline cache
 
-const CACHE_NAME = 'jobtrack-community-v2';
+const CACHE_NAME = 'jobtrack-community-v3';
 const SHELL = [
   './',
   './index.html',
@@ -13,7 +13,15 @@ const SHELL = [
   './icon-512.png',
   './icon-maskable-512.png',
   './apple-touch-icon.png',
-  './favicon-32.png'
+  './favicon-32.png',
+  './fonts/assistant-hebrew-400-normal.woff2',
+  './fonts/assistant-hebrew-600-normal.woff2',
+  './fonts/assistant-hebrew-700-normal.woff2',
+  './fonts/assistant-latin-400-normal.woff2',
+  './fonts/assistant-latin-600-normal.woff2',
+  './fonts/assistant-latin-700-normal.woff2',
+  './fonts/alef-hebrew-700-normal.woff2',
+  './fonts/alef-latin-700-normal.woff2'
 ];
 
 self.addEventListener('install', event => {
