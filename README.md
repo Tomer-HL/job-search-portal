@@ -85,6 +85,10 @@ Easiest: visit the [public link](#) (if hosted on GitHub Pages) or download the 
 
 In Chrome / Edge: an "Install" icon appears in the address bar.
 
+### The Today view
+
+The app opens on **Today**: jobs that need something from you, grouped as *Today*, *This week* and *Suggested follow-up*, with the selected job's details, next step and history on the side. Set a **next step** (with an optional date) on any job. Jobs with no next step get a suggested follow-up 7 days after you applied, and it stops being suggested after 21 days. Table and Kanban views are still available from the switch at the top.
+
 ### Cross-device sync (optional)
 
 By default everything stays in this browser only. To use the same data on your phone and computer:
