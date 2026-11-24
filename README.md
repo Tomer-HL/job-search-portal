@@ -17,7 +17,7 @@ JobTrack היא אפליקציית ווב פשוטה לניהול חיפוש ע�
 - **מקומי לחלוטין** — הנתונים נשמרים ב-`localStorage` של הדפדפן. אף אחד חוץ ממכם לא רואה אותם.
 - **דו-לשוני** — עברית ואנגלית, החלפה בלחיצה.
 - **PWA** — ניתן להתקין כאפליקציה במחשב או בטלפון, עובד גם אופליין.
-- **שני תצוגות** — טבלה לעבודה רצינית, קנבן (Kanban) לתמונה מהירה.
+- **שני תצוגות** — טבלה לעבודה רצינית, לוח (Board) לתמונה מהירה.
 - **ייצוא/ייבוא** — גיבוי הכל לקובץ JSON בלחיצה, ייבוא בקלות מאותו קובץ.
 - **סנכרון אופציונלי** — התחברות עם Google, בלחיצה אחת, כדי לעבוד על אותם נתונים בטלפון ובמחשב. בלי הגדרות.
 - **נגישות** — ניווט מקלדת, קורא מסך, ניגודיות AA ותצוגת כרטיסים בטלפון.
@@ -66,7 +66,7 @@ JobTrack is a simple web app for managing your job search. Track jobs you've app
 - **Fully local** — Data stored in browser `localStorage`. Nobody but you sees it.
 - **Bilingual** — Hebrew and English, switchable with one click.
 - **PWA** — Installable on desktop or mobile, works offline.
-- **Two views** — Table for serious work, Kanban for a quick visual.
+- **Two views** — Table for serious work, Board for a quick visual.
 - **Export/Import** — Back up everything to JSON, restore from the same file.
 - **Optional sync** — Sign in with Google to use the same data on your phone and computer. No setup.
 - **Accessible** — keyboard and screen-reader support, AA contrast, card layout on phones.
@@ -87,7 +87,7 @@ In Chrome / Edge: an "Install" icon appears in the address bar.
 
 ### The Today view
 
-The app opens on **Today**: jobs that need something from you, grouped as *Today*, *This week* and *Suggested follow-up*, with the selected job's details, next step and history on the side. Set a **next step** (with an optional date) on any job. Jobs with no next step get a suggested follow-up 7 days after you applied, and it stops being suggested after 21 days. Table and Kanban views are still available from the switch at the top.
+The app opens on **Today**: jobs that need something from you, grouped as *Today*, *This week* and *Suggested follow-up*, with the selected job's details, next step and history on the side. Set a **next step** (with an optional date) on any job. Jobs with no next step get a suggested follow-up 7 days after you applied, and it stops being suggested after 21 days. Table and Board views are still available from the switch at the top.
 
 ### Cross-device sync (optional)
 
