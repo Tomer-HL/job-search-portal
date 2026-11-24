@@ -503,7 +503,14 @@ function attachHandlers(){
     saveUI(); render();
   });
   const s = document.getElementById('search');
-  if (s) s.oninput = (e) => { UI.search = e.target.value; saveUI(); render(); s.focus(); };
+  if (s) s.oninput = (e) => {
+    UI.search = e.target.value; saveUI();
+    const pos = e.target.selectionStart;
+    render();
+    // render() rebuilds the whole DOM, so restore focus + caret on the NEW input
+    const ns = document.getElementById('search');
+    if (ns){ ns.focus(); try{ ns.setSelectionRange(pos,pos); }catch(_){} }
+  };
   const fs = document.getElementById('filterStatus');
   if (fs) fs.onchange = (e) => { UI.filterStatus = e.target.value; saveUI(); render(); };
   const fa = document.getElementById('filterArchived');
