@@ -104,25 +104,11 @@ Changes save automatically and appear on every device; you can keep working offl
 
 ---
 
-## Hosting on GitHub Pages
-
-1. Fork or create a repo with these files at the root.
-2. In repo settings → Pages → Source: pick the main branch.
-3. The site will be live at `https://<your-username>.github.io/<repo-name>/`.
-
 ## License
 
-MIT — do whatever you want, no warranty. Made with care for job seekers everywhere. בהצלחה!
+Copyright (c) 2026 Tomer Hillel Lev. **All rights reserved.**
 
-## Self-hosting with your own Firebase project
-
-The hosted app uses a shared Firebase project. To run your own copy:
-
-1. Create a Firebase project; enable **Authentication → Google** and **Firestore**.
-2. Add your domain under Authentication → Settings → Authorized domains.
-3. Publish [`firestore.rules`](firestore.rules) in the Firestore console (each user can only access `users/{uid}/applications`).
-4. Replace `FIREBASE_CONFIG` near the top of the script in `index.html` with your own web app config. It is a public identifier, not a secret; the rules are the security boundary.
-5. Deploy the folder as static files (Netlify, GitHub Pages, ...). `netlify.toml` is included.
+Free to use for your own job search through the hosted app. The source is public so you can see how your data is handled, but copying, redistributing, hosting your own copy or commercial use requires written permission. See [`LICENSE`](LICENSE).
 
 ## Privacy & accessibility
 
